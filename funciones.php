@@ -205,6 +205,6 @@
             //Cierra statement
             mysqli_stmt_close($query, $queryNull, $sql_validar);    
         }
-    }
+    
 
 ?>
