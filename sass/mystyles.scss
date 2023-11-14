@@ -1,6 +1,9 @@
 // @charset "utf-8";
 // @import "../bulma/bulma.sass";
 // sass --watch --no-source-map sass/mystyles.scss:css/mystyles.css
+
+// For chills
+// sass --watch --no-source-map chills-restaurant/sass/mystyles.scss:css/mystyles.css
 @charset "utf-8";
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
@@ -13,15 +16,16 @@ $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
 $red:#ff0000;
 $black:#000000;
-$wheat:wheat;
+$babyBlue:#81cff4;
 
 
 // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
+
 $primary: $purple;
-$link: $pink;
+$secondaryPrimary:$black;
+$secondary:$beige-light;
+$link: $babyBlue;
 $widescreen-enabled: true;
 $fullhd-enabled: true;
 
@@ -31,7 +35,7 @@ $fullhd-enabled: true;
 $control-border-width: 1px;
 $input-border-color: transparent;
 $input-shadow: none;
-$body-background-color: $wheat;
+$body-background-color: $babyBlue;
 
 
 
@@ -170,7 +174,3 @@ $body-background-color: $wheat;
 @import "../bulma/sass/layout/section.sass";
 
 @import "../bulma/sass/grid/columns.sass";
-
-
-
-
