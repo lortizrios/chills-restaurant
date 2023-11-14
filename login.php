@@ -168,7 +168,7 @@
                                     Login
                                 </button>
                                 <a href="clients_register.php" class="button is-light ml-3">Register</a>
-                                <a href="manager_home.html" class="button is-danger ml-3">Manager Login</a>
+                                <a href="manager_home.php" class="button is-danger ml-3">Manager Login</a>
                             </div>
                         </form>
                     </div>
