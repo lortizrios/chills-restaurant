@@ -1,7 +1,4 @@
-<link rel="stylesheet" href="bulma/css/bulma.css">
-    <link rel="stylesheet" href="css/mystyles.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/StandardStyle.css">
+ 
 <nav class="navbar has-background-transparent" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <!-- navbar items, navbar burger... -->
