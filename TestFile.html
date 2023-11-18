@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Items</title>
+    <link rel="stylesheet" href="bulma/css/bulma.css">
+    <link rel="stylesheet" href="css/mystyles.css">
+    <link rel="stylesheet" href="css/StandardStyle.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ... (your existing head content) ... -->
+</head>
+<body>
+    <!-- ... (your existing body content) ... -->
+
+    <section class="hero is has-background-transparent">
+        <div class="hero-body">
+            <!-- ... (your existing hero content) ... -->
+
+            <!-- Pizza Menu -->
+            <ul class="Menu">
+                <!-- Repeat this structure for each menu item -->
+                <li class="Menu-Item">
+                    <div class="text-content">
+                        <p>Pizza</p>
+                        <p>Description: Is made of Cheese Pepperoni and Spinach</p>
+                        <p>Price:<span>&#36;</span>15.99</p>
+                        <button class="button edit-button">Edit</button>
+                        <input type="text" class="edit-input" style="display:none;" />
+                        <button class="button save-edit" style="display:none;">Save</button>
+                    </div>
+                    <img src="https://i.postimg.cc/0NRYyC2N/pexels-valeria-boltneva-1639557.jpg" alt="" class="dish-image">
+                </li>
+
+                <!-- Repeat for other menu items -->
+                <li class="Menu-Item">
+                    <div class="text-content">
+                        <p>Pizza</p>
+                        <p>Description: Is made of Cheese Pepperoni and Spinach</p>
+                        <p>Price:<span>&#36;</span>15.99</p>
+                        <button class="button edit-button">Edit</button>
+                        <input type="text" class="edit-input" style="display:none;" />
+                        <button class="button save-edit" style="display:none;">Save</button>
+                    </div>
+                    <img src="https://i.postimg.cc/0NRYyC2N/pexels-valeria-boltneva-1639557.jpg" alt="" class="dish-image">
+                </li>
+            </ul>
+
+            <!-- ... (your existing hero content) ... -->
+        </div>
+    </section>
+
+    <!-- ... (your existing scripts) ... -->
+
+    <script>
+
+      //Creates the Node List and store all the elements with the same ID
+        const editButtons = document.querySelectorAll(".edit-button");
+        const inputFields = document.querySelectorAll(".edit-input");
+        const saveButtons = document.querySelectorAll(".save-edit");
+        //event list in which loops for each button to make sure which one is pressed with the index which iterates and checks if the element is inside the parent element
+
+        //The index makes sure that the element is been edited is the correct one and also helps to jump from element to element
+        editButtons.forEach((editButton, index) => {
+            editButton.addEventListener('click', () => {
+                // Hide the "Edit" button
+                editButton.style.display = 'none';
+
+                // Show the input field and the "Save" button
+                inputFields[index].style.display = 'block';
+                saveButtons[index].style.display = 'block';
+
+                // Set the input field value to the current text content
+                inputFields[index].value = editButton.parentNode.textContent.trim();
+            });
+            //checks the index if is the correct one then is saves
+            saveButtons[index].addEventListener('click', () => {
+                // Update the menu item text with the input value
+                const newMenuItemText = inputFields[index].value;
+                const menuItem = editButton.parentNode;
+                const menuItemText = menuItem.querySelector('.text-content p:first-child');
+                menuItemText.textContent = newMenuItemText;
+
+                // Hide the input field and the "Save" button
+                inputFields[index].style.display = 'none';
+                saveButtons[index].style.display = 'none';
+
+                // Show the "Edit" button
+                editButton.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

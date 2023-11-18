@@ -6,7 +6,7 @@
 
 }
 
-input { 
+/* input { 
     opacity: 0;
     width: 0;
     height: 0;
@@ -43,23 +43,23 @@ input {
     transition: .4s;
   }
   /* Changes the background color when is checked */
-  input:checked + .myslider {
+  /* input:checked + .myslider {
     background-color:greenyellow;
-  }
+  } */
   
-  input:focus + .myslider {
+  /* input:focus + .myslider {
     box-shadow: 0 0 1px #2196F3;
-  }
+  } */
   /* Moves the slider ball to one side to another
   The differents transforms are for compatibility for differents browsers
   
   
   */
-  input:checked + .myslider:before {
+  /* input:checked + .myslider:before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);
-  }
+  } */
   /*The body of the slider   */
   .switch {
     position: relative;
@@ -94,24 +94,24 @@ input {
     transition: .4s;
   }
   /* Changes the background color when is checked */
-  input:checked + .slider {
+  /* input:checked + .slider {
     background-color:greenyellow;
   }
   
   input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
-  }
+  } */
   /* Moves the slider ball to one side to another
   The differents transforms are for compatibility for differents browsers
   
   
   */
-  input:checked + .slider:before {
+  /* input:checked + .slider:before {
     -webkit-transform: translateX(24px);
     -ms-transform: translateX(24px);
     transform: translateX(24px);
   }
-  
+   */
   /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
@@ -119,7 +119,7 @@ input {
   /* Content inside the slider */
   .slider.round::before {
     border-radius: 50%;
-  }
+  } 
 
  .has-background-transparent{
   background-color: transparent !important;
@@ -211,6 +211,16 @@ input {
  
 }
 
+
+ 
+
+
+
+
+
+
+
+
 /* Media Queries */
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
@@ -273,6 +283,16 @@ input {
     
    
   }
+}
+
+.edit-input{
+  display: none;
+  opacity: 1;
+  background-color: blanchedalmond;
+color: black;
+font-size: 12px;
+   
+  padding: 1.5rem;
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
