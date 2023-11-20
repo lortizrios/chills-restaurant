@@ -12,7 +12,8 @@
 </head>
 
 <body>
-    <?php include 'include/navbarLogin.php'?>
+
+<?php include 'include/navbarLogin.php'?>
 
     <script>
     function validarFormulario() {

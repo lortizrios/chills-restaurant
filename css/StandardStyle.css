@@ -1,5 +1,12 @@
 
-input { 
+:root{
+--babyGrey:color #81cff4;
+
+
+
+}
+
+/* input { 
     opacity: 0;
     width: 0;
     height: 0;
@@ -36,23 +43,23 @@ input {
     transition: .4s;
   }
   /* Changes the background color when is checked */
-  input:checked + .myslider {
+  /* input:checked + .myslider {
     background-color:greenyellow;
-  }
+  } */
   
-  input:focus + .myslider {
+  /* input:focus + .myslider {
     box-shadow: 0 0 1px #2196F3;
-  }
+  } */
   /* Moves the slider ball to one side to another
   The differents transforms are for compatibility for differents browsers
   
   
   */
-  input:checked + .myslider:before {
+  /* input:checked + .myslider:before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);
-  }
+  } */
   /*The body of the slider   */
   .switch {
     position: relative;
@@ -87,24 +94,24 @@ input {
     transition: .4s;
   }
   /* Changes the background color when is checked */
-  input:checked + .slider {
+  /* input:checked + .slider {
     background-color:greenyellow;
   }
   
   input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
-  }
+  } */
   /* Moves the slider ball to one side to another
   The differents transforms are for compatibility for differents browsers
   
   
   */
-  input:checked + .slider:before {
+  /* input:checked + .slider:before {
     -webkit-transform: translateX(24px);
     -ms-transform: translateX(24px);
     transform: translateX(24px);
   }
-  
+   */
   /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
@@ -112,7 +119,7 @@ input {
   /* Content inside the slider */
   .slider.round::before {
     border-radius: 50%;
-  }
+  } 
 
  .has-background-transparent{
   background-color: transparent !important;
@@ -167,6 +174,55 @@ input {
   font-size: 60px;
 }
 
+.Menu{
+  margin-top: 100px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap; 
+  width: 100%;
+  justify-content:space-around;
+}
+/* Box  */
+ .Menu-Item{
+  flex: auto auto 150px;
+  padding: 1rem;
+  margin: 5px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures the image won't overflow */
+  display: flex;
+  
+ }
+ .text-content {
+  padding: 10px;
+  font-size: 1.5rem;
+}
+.dish-image{
+  margin: 5px;
+  width: 100px;
+ 
+   /* Set a fixed width for the image */
+   min-height: 150px;
+    object-fit: cover; 
+    flex: 1 1 100px;
+  
+ 
+}
+
+
+ 
+
+
+
+
+
+
+
+
+/* Media Queries */
+
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
   .overlay a {font-size: 20px}
@@ -176,3 +232,78 @@ input {
     right: 35px;
   }
 }
+
+
+@media screen and (max-height:450px) {
+  
+
+  
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .Menu{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+  
+  }
+  .Menu-Item{
+    flex: auto auto auto;
+    
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures the image won't overflow */
+    display: flex;
+    /* flex-direction: column; */
+   
+    
+  }
+  .text-content {
+    padding: 2px;
+    font-size: 1rem;
+  }
+  .dish-image{
+    margin: 2px;
+    padding-right: 15px;
+    
+    
+     /* Set a fixed width for the image */
+     min-height: 150px;
+      object-fit:cover; 
+
+      flex:0 0 160px ;
+     
+      
+    
+   
+  }
+}
+
+.edit-input{
+  display: none;
+  opacity: 1;
+  background-color: blanchedalmond;
+color: black;
+font-size: 12px;
+   
+  padding: 1.5rem;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* /* Extra large devices (large laptops and desktops,  */
+@media only screen and (min-width: 1200px) {}
+

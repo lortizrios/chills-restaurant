@@ -18,3 +18,17 @@ function openNav() {
   function closeNav() {
     document.getElementById("myNav").style.width = "0%";
   } 
+
+
+
+function Edit(){
+  
+}
+
+  //Manager Item Code
+
+
+
+  //edit
+
+
