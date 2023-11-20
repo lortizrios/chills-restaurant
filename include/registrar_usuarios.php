@@ -6,7 +6,7 @@
         
         
         // Establecer conexión a la base de datos
-        $con=dataBaseConecction(); 
+        $con = dataBaseConnetion(); 
         
         //Inicia la sesion
         startSession();

@@ -39,7 +39,7 @@
                       require_once 'include/db.php';
                     
                       // Obtener la conexión a la base de datos
-                      $conn = dataBaseConecction();
+                      $conn = dataBaseConnetion();
                       
                       if($conn) {
                         // Consulta SQL
