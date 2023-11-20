@@ -20,10 +20,8 @@ function openNav() {
   } 
 
 
+//
 
-function Edit(){
-  
-}
 
   //Manager Item Code
 

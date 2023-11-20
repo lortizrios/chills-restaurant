@@ -1,67 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ... (your existing head content) ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/MenuStyle.css">
+    <link rel="stylesheet" href="css/mystyles.css">
 </head>
 <body>
-    <!-- ... (your existing body content) ... -->
-
-    <section class="hero is has-background-transparent">
-        <div class="hero-body">
-            <!-- ... (your existing hero content) ... -->
-
-            <!-- Pizza Menu -->
-            <ul class="Menu">
-                <!-- Repeat this structure for each menu item -->
-                <li class="Menu-Item" id="Menu-Item">
-                    <div class="text-content">
-                        <p>Pizza</p>
-                        <p>Description: Is made of Cheese Pepperoni and Spinach</p>
-                        <p>Price:<span>&#36;</span>15.99</p>
-                        <!-- Add an "Edit" button with an input field -->
-                        <button class="button" name="Edit" onclick="editMenuItem(this)">Edit</button>
-                        <input type="text" class="edit-input" style="display:none;" id="editInput" />
-                        <button class="button" name="Save" onclick="saveEdit(this)" style="display:none;">Save</button>
-                    </div>
-                    <img src="https://i.postimg.cc/KY2rMZFn/Pizza.jpg" alt="" class="dish-image">
-                </li>
-                <!-- Repeat for other menu items -->
-            </ul>
-
-            <!-- ... (your existing hero content) ... -->
+    <div class="Menu" id="Menu">
+        <div class="Menu-Items" id="Menu-Items">
+            <div class="content" id="content">
+                <div class="Menu-Item">
+                    <input type="text" placeholder="Pizza" readonly id="item"> <span><button id="edit">Edit</button></span>
+                    <input type="text" placeholder="Price:$5" readonly id="item"><span><button id="edit">Edit</button></span>
+                </div>
+            </div>
         </div>
-    </section>
-
-    <!-- ... (your existing scripts) ... -->
-
-    <script>
-        function editMenuItem(button) {
-            // Hide the "Edit" button
-            button.style.display = "none";
+        <div class="Menu-Items" id="Menu-Items">
+            <div class="content" id="content">
+                <div class="Menu-Item">
+                    <input type="text" placeholder="Pizza" readonly id="item"> <span><button id="edit">Edit</button></span>
+                    <input type="text" placeholder="Price:$5" readonly id="item"><span><button id="edit">Edit</button></span>
+                </div>
+            </div>
             
-            // Show the input field and the "Save" button
-            const inputField = document.getElementById("editInput");
-            const saveButton = inputField.nextSibling;
-            inputField.style.display = "inline-block";
-            saveButton.style.display = "inline-block";
-
-            // Set the input field value to the current text content
-            inputField.value = button.parentNode.textContent.trim();
-        }
-
-        function saveEdit(button) {
-            // Hide the input field and the "Save" button
-            const inputField = button.previousSibling;
-            button.style.display = "none";
-            inputField.style.display = "none";
-
-            // Show the "Edit" button
-            const editButton = inputField.previousSibling;
-            editButton.style.display = "inline-block";
-
-            // Update the text content with the input field value
-            editButton.parentNode.textContent = inputField.value;
-        }
-    </script>
+        </div>
+        <div class="Menu-Items" id="Menu-Items">
+            <div class="content" id="content">
+                <div class="Menu-Item">
+                    <input type="text" placeholder="Pizza" readonly id="item"> <span><button id="edit">Edit</button></span>
+                    <input type="text" placeholder="Price:$5" readonly id="item"><span><button id="edit">Edit</button></span>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+    <script src="javascript/MenuScript.js"></script>
 </body>
 </html>
