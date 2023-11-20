@@ -17,12 +17,17 @@
 
 <body>
     <?php require_once 'include/navbar.php' ?>
+
     <?php
         // Importar la conexión a la base de datos
         require_once 'include/db.php';
-       
+        
+
+        
         // Obtener la conexión a la base de datos
-        $conn = dataBaseConecction();
+        $conn = dataBaseConnetion();
+        
+        
         
         if($conn) {
             // Consulta SQL
@@ -46,7 +51,11 @@
         else { 
             echo "Error al obtener la conexión a la base de datos.";
         }
+        
+        
     ?>
+
+
 </body>
 
 </html>

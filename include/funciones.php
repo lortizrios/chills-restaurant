@@ -6,14 +6,6 @@
         session_start();
     }
 
-    function usuarioExiste($email, $base_de_datos) {
-        $query = $base_de_datos->prepare("SELECT email FROM users WHERE email = ? LIMIT 1;");
-        
-        //var_dump($base_de_datos);
-        $query->execute([$email]);
-        return $query->rowCount() > 0;
-    }
-
     function obtenerUsuarioPorCorreo($email, $base_de_datos) {
         $query = $base_de_datos->prepare("SELECT email FROM users WHERE email = ? LIMIT 1;");
         $query->execute([$email]);
