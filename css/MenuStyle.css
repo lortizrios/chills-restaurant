@@ -8,7 +8,7 @@
     justify-content:space-around;
   }
   /* Box  */
-   .Menu-Items{
+   .Menu-Item{
     flex: auto auto 150px;
     padding: 1rem;
     margin: 5px;
@@ -18,6 +18,9 @@
     overflow: hidden; /* Ensures the image won't overflow */
     display: flex;
     
+   }
+   #item{
+    display: block;
    }
    .content {
     padding: 10px;
