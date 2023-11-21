@@ -18,7 +18,7 @@
     <div class="section pt-4 pb-0">
         <nav class="breadcrumb has-arrow-separator">
             <ul class="container is-size-2">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="manager_home.html">Manager</a></li>
                 <li><a href="manager_all_accounts.html">All Accounts</a></li>
 
