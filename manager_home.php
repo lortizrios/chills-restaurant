@@ -20,7 +20,7 @@
     <div class="section pt-4 pb-0">
         <nav class="breadcrumb has-arrow-separator">
             <ul class="container is-size-2">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="">Manager</a></li>
             </ul>
         </nav>
