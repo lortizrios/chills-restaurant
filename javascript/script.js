@@ -20,6 +20,13 @@ function openNav() {
   } 
 
 
+
+  function goToLogOut() {
+    window.location.href = "logout.html";
+}
+
+
+  
 //
 
 
