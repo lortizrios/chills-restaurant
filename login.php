@@ -107,17 +107,11 @@
                                     </span>
                                 </div>
                             </div>
+                            <br>
                             <div class="field">
-                                <label for="" class="checkbox">
-                                    <input type="checkbox">
-                                    Login as Manager or Employee </label>
-                            </div>
-                            <div class="field">
-                                <button type="submit" id="submit" class="button is-success">
-                                    Login
-                                </button>
+                                <button type="submit" id="submit" class="button is-success">Login</button>
                                 <a href="clients_register.php" class="button is-light ml-3">Register</a>
-                                <a href="manager_home.php" class="button is-danger ml-3">Manager Login</a>
+                                <a href="pinpadlogin.html" class="button is-danger ml-3">Pin Pad Login</a>
                             </div>
                         </form>
                     </div>
