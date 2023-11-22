@@ -8,10 +8,15 @@
     justify-content:space-around;
   }
   /* Box  */
-   .Menu-Items{
+
+
+   .Menu-Item{
     flex: auto auto 150px;
     padding: 1rem;
-    margin: 5px;
+    margin-top: 0;
+    margin-left: 1px;
+    margin-right: 5px;
+    margin-bottom: 0;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -19,6 +24,18 @@
     display: flex;
     
    }
+
+   #edit{
+    margin: 15px;
+    padding: 10px;
+   }
+   #item{
+    display: block;
+    border-radius: 1.5rem;
+    border-style: none;
+    font-size: 24px;
+   }
+
    .content {
     padding: 10px;
   }
@@ -33,18 +50,6 @@
     
    
   }
-  
-  
-   
-  
-  
-  
-  
-  
-  
-  
-  
- 
   
   
   /* Extra small devices (phones, 600px and down) */
