@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Order Screen</title>
+    <link rel="stylesheet" href="bulma/css/bulma.css">
+    <link rel="stylesheet" href="css/mystyles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <head>
+    <title>Food Cart</title>
+    <style>
+        .container {
+            width: 900px;
+            margin: 0 auto;
+        }
+        .cart {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 10px;
+            font-size: 17.5px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #food-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        #food-list input[type="number"],
+        #food-list input[type="text"] {
+            width: 100px;
+            margin-right: 10px;
+        }
+        #food-list span {
+            width: 120px;
+            display: inline-block;
+        }
+        .modification {
+            background-color: yellow; /* Yellow highlight for modification text in the cart */
+            padding: 3px;
+            margin-left: 10px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .cart-item-details {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        .remove-button {
+            align-self: flex-end;
+        }
+    </style>
+</head>
+</head>
+<body>
+    <nav class="navbar " role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+          <i class='bx bxs-camera'></i> 
+          </a>
+        <!-- this changes the navbar to a side bar-->
+          <a class="navbar-burger is-0-desktop" id="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+           
+          </a>
+        </div>
+          <div class="navbar-menu" id="nav-links">
+            
+            <div class="navbar-end">
+              <a href="index.php" class="navbar-item">Home</a>
+
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                  Order
+                </a>
+                
+                <div class="navbar-dropdown">
+                  <!-- other navbar -->
+                  <a href="order.html" class="navbar-item">
+                    Make an Order
+                  </a>
+                  <a href="" class="navbar-item">
+                    View Current Order
+                  </a>
+                  <a href="" class="navbar-item">
+                    Previous Orders
+                  </a>
+                </div>
+              </div>
+
+              <a href="login.html" class="navbar-item">My Account</a>
+              <a href="" class="navbar-item">Login</a>
+              <a href="" class="navbar-item">Sign Out</a>
+             
+              </div>
+             </div>
+            </div>
+          </div>
+    </nav>
+<body>
+    <div class="container">
+        <h1>Food Cart</h1>
+        <div class="cart">
+            <h2>Please select your desired items from below!</h2>
+            <ul id="cart-list">
+                <!-- Add more cart items -->
+            </ul>
+        </div>
+        <div>
+            <h2>Food Items</h2>
+            <ul id="food-list">
+                <li>
+                    <span>Chill's Burger</span>
+                    <input type="number" id="item1-quantity" value="1">
+                    <input type="text" id="item1-modification" placeholder="Modifications">
+                    <button onclick="addToCart('Chills Burger', 'item1-quantity', 'item1-modification')">Add to Cart</button>
+                </li>
+                <li>
+                    <span>Chill's Fries</span>
+                    <input type="number" id="item2-quantity" value="1">
+                    <input type="text" id="item2-modification" placeholder="Modifications">
+                    <button onclick="addToCart('Chills Fries', 'item2-quantity', 'item2-modification')">Add to Cart</button>
+                </li>
+                <li>
+                    <span>Chill's Drink</span>
+                    <input type="number" id="item3-quantity" value="1">
+                    <input type="text" id="item3-modification" placeholder="Modifications">
+                    <button onclick="addToCart('Chills Drink', 'item3-quantity', 'item3-modification')">Add to Cart</button>
+                </li>
+                <!-- add food items -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(item, quantityId, modificationId) {
+            const cartList = document.getElementById('cart-list');
+            const quantity = document.getElementById(quantityId).value;
+            const modification = document.getElementById(modificationId).value;
+            
+            const cartItem = document.createElement('li');
+            cartItem.innerHTML = `
+                <div class="cart-item">
+                    <div class="cart-item-details">
+                        <span class="item-in-cart">${item}</span> 
+                        (<span class="quantity">Quantity: ${quantity}</span>) 
+                        ${modification ? `<span class="modification">Modifications: ${modification}</span>` : ''}
+                    </div>
+                    <button class="remove-button" onclick="removeFromCart(this)">Remove</button>
+                </div>`;
+            cartList.appendChild(cartItem);
+        }
+
+        function removeFromCart(button) {
+            const cartList = document.getElementById('cart-list');
+            cartList.removeChild(button.parentElement.parentElement);
+        }
+    </script>
+</body>
+</html>

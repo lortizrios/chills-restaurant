@@ -33,7 +33,7 @@
             <div class="columns">
                 <div class="column">
 
-                    <form action="index.html" method="post" onsubmit="return validarFormulario()">
+                    <form action="index.php" method="post" onsubmit="return validarFormulario()">
                         <div class="field">
                             <label class="label"></label>
                             <div class="control">
@@ -172,7 +172,7 @@
     //     if (usuarioExiste($email, $password)) {
     //         // El usuario existe y las credenciales son válidas
     //         // Puedes redirigir al usuario a la página de inicio o mostrar un mensaje de éxito aquí
-    //         header("Location: index.html"); // Cambia la URL de redirección según tus necesidades
+    //         header("Location: index.php"); // Cambia la URL de redirección según tus necesidades
     //         exit;
     //     } else {
     //         // Las credenciales no son válidas

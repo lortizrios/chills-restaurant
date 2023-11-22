@@ -1,12 +1,15 @@
 <?php
-    
+    include_once 'include/funciones.php';
+
     session_start();
+    
+    //session_start();
+
 
     // conexion a la base de datos
     require_once 'include/db.php';
     
     $conn = dataBaseConnetion();
-
 
     // Verifica si hay conexion a la base de datos
     if (!$conn) 
@@ -26,68 +29,58 @@
         // Redireccionar a la página de errores y pasar el mensaje como parámetro
         header('Location: errorpage1.html');
         exit();
-    }
-    
 
-    
-    
-    
+    }else{
+        function validate($data){
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+    }
+
     $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    $result = mysqli_query($conn, $query);
 
     // Verifica si el usuario existe en las bases de datos
-    if ($stmt = $conn->prepare('SELECT id_user, password FROM users WHERE email = ?')) {
-        $stmt->bind_param('s', $_POST['email']);
-        $stmt->execute();
+    if (mysqli_num_rows($result))
+    {
+        $row = mysqli_fetch_assoc($result);
         
         // Redireccionar a la página de errores y pasar la variable como parámetro
         //header('Location: errorpage2.html?customError=' . urlencode($customError));
-        
-        //El bug esta dentro de aqui<<<<<<<<<<<<<<<<<
-        if ($stmt->num_rows > 0) {
-            $stmt->bind_result($id, $storedPassword);
-            $stmt->fetch();
-            //header('Location: errorpage3.html');
 
-            // Validar la contraseña
-            if ($_POST['password'] === $storedPassword && $id === $_POST['id']) {
-                // El usuario existe y la contraseña es correcta
-                session_regenerate_id();
-                $_SESSION['login'] = TRUE;
-                $_SESSION['email'] = $_POST['email']; 
-                $_SESSION['id'] = $id;
-                
-                header('Location: inicio.php');
-                exit();
-            }else {
-                // Obtener el mensaje de error de la conexión
-                $customError = "Contraseña incorrecta";
+        if ($row['email'] === $email && $row['password'] === $password)
+        {
+            $user = $row['user_type'];
+            $name = $row['name'];
 
-                // Redireccionar a la página de errores y pasar la variable como parámetro
-                header('Location: errorpage2.html?customError=' . urlencode($customError));
-                exit();
+            if ($user>0 && $name>0){
+                $_SESSION['user_type'] = $user;
+                $_SESSION['name'] = $name;
             }
-            
-            // Si no encuentra al usuario lo envia a pagina de error
-        }else {
-            // Usuario no encontrado
 
-            // Redireccionar a la página de errores y pasar la variable como parámetro
-            header('Location: errorpage3.html');
+            // El usuario existe y la contraseña es correcta
+            session_regenerate_id();
+            $_SESSION['login'] = TRUE;
+            $_SESSION['email'] = $email;
+            //$_SESSION['user_type'] = $userType;
+
+            header('Location: index.php');
             exit();
+
         }
+    }else {
+
+        // Redireccionar a la página de errores y pasar la variable como parámetro
+
+        $error = '';
+        $_SESSION['wrongPassword'] = true;
+        header('Location: errorscreen.php');
+        exit();
+
     }
-    //Hasta aqui-----------------------
-
-        //Descomentar este codigo despues de debugin!!!!!!!!!!!!!!!!!!!!!<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
-    
-    // Si llegamos aquí, la autenticación falló
-    
-    //si no hay datos muestra error y redireccionar
-    $customError = "La autenticación falló";
-
-    // Redireccionar a la página de errores y pasar la variable como parámetro
-    header('Location: errorpage4.html?customError=' . urlencode($customError));
-    exit();
-    
-    $stmt->close();
 ?>
