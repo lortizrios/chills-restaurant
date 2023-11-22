@@ -80,12 +80,26 @@
         </div>
     </section> -->
 
+
+
     <section class="hero is-primary is-fullheight">
         <div class="hero-body">
             <div class="container">
                 <div class="columns is-centered">
                     <div class="column is-5-tablet is-4-desktop is-5-widescreen">
+                        <?php
+                        session_start();
 
+                        $alert = $_SESSION['usuario-registrado'];
+
+                        // Se llama una alerta de bolma cuando reciba la session de usuario registrado de sessions
+                        if($alert){
+                            echo'<div class="notification is-success">
+                                      <button class="delete"></button>
+                                      '. $alert .'
+                                </div>';
+                        }
+                        ?>
                         <form action="loginAuthentication.php" method="POST" class=" box">
                             <div class="field">
                                 <label for="" class="label">Email</label>
