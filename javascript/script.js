@@ -20,8 +20,6 @@ document.getElementById("myNav").style.width = "0%";
 }
 
 
-function goToLogOut() {
-    window.location.href = "logout.html";
-}
+
 
 

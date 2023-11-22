@@ -1,3 +1,5 @@
+
+
 <!-- <link rel="stylesheet" href="bulma/css/bulma.css">
     <link rel="stylesheet" href="css/mystyles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -20,7 +22,18 @@
         <div class="navbar-menu" id="nav-links">
           
           <div class="navbar-end">
-            <a href="index.html" class="navbar-item">Home</a>
+              <?php
+
+              include_once ('include/funciones.php');
+              session_start();
+
+              if (isLogin() === true)
+              {
+                  echo '<a href="index.php" class="navbar-item">Home</a>';
+              }else{
+                  echo '<a href="login.php" class="navbar-item">Home</a>';
+              }
+              ?>
             
               <a class="navbar-item">
                 Filler
@@ -47,15 +60,52 @@
                <a href="" class="navbar-item">Filler</a>
               </div>
             </div>
+            <?php
+              if(isLogin() === true){
+              echo '<a href="clients_register.php" class="navbar-item">Register</a>
+              <a href="" class="navbar-item">My Account</a>
+              <a class="navbar-item" onclick="confirmAction()">Sign Out</a>';
 
-            <a href="login.php" class="navbar-item">Login</a>
-            <a href="register.html" class="navbar-item">Register</a>
-            <a href="" class="navbar-item">My Account</a>
-            <a href="" class="navbar-item">Sign Out</a>
+              }else {
+                  echo '<a href="login.php" class="navbar-item">Login</a>
+              <a href="clients_register.php" class="navbar-item">Register</a>
+              <a href="login.php" class="navbar-item">My Account</a>';
+              }
+            ?>
            
             </div>
            </div>
           </div>
         </div>
   </nav>
-   
+
+<!--Solo para proposito de testing-->
+<?php printSessions();?>
+
+
+<script>
+    const signOut = () => {
+        sessionStorage.clear();
+        <?php session_destroy(); ?>
+        location.href = "login.php";
+    };
+
+    const confirmAction = () => {
+        const response = confirm("Are you sure you want to Sing Out?");
+
+        if (response)
+        {
+            alert("Su sesión ha sido cerrada con éxito");
+            signOut();
+        }else {
+            alert("Cancelado");
+        }
+    }
+</script>
+
+
+
+
+
+
+

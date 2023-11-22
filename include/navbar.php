@@ -17,13 +17,25 @@
         <div class="navbar-menu" id="nav-links">
           
           <div class="navbar-end">
-            <a href="index.html" class="navbar-item">Home</a>
-            
+              <?php
+                  include_once ('include/funciones.php');
+                  session_start();
+
+                  if (isLogin() === true)
+                  {
+                      echo '<a href="index.php" class="navbar-item">Home</a>';
+                  }else{
+                    echo '<a href="login.php" class="navbar-item">Home</a>';
+                  }
+              ?>
+
+
+
               <a class="navbar-item">
                 Filler
               </a>
                 <!-- Other navbar items -->
-        
+
             <a href="" class="navbar-item">
                   Filler
                 </a>
@@ -31,8 +43,8 @@
               <a class="navbar-link">
                 Orders
               </a>
-              
-            
+
+
               <div class="navbar-dropdown">
                 <!-- Other navbar items -->
                 <a href="" class="navbar-item">
@@ -45,14 +57,48 @@
               </div>
             </div>
 
-            <a href="login.php" class="navbar-item">Login</a>
-            <a href="register.html" class="navbar-item">Register</a>
-            <a href="" class="navbar-item">My Account</a>
-            <a href="" class="navbar-item">Sign Out</a>
+              <?php
+
+
+              if(isLogin() === true){
+                  echo '<a href="login.php" class="navbar-item">Login</a>
+              <a href="register.html" class="navbar-item">Register</a>
+              <a href="" class="navbar-item">My Account</a>
+              <a class="navbar-item" onclick="confirmAction()">Sign Out</a>';
+
+              }else {
+                  echo '<a href="login.php" class="navbar-item">Login</a>
+              <a href="register.html" class="navbar-item">Register</a>
+              <a href="" class="navbar-item">My Account</a>';
+              }
+              ?>
            
             </div>
            </div>
           </div>
         </div>
   </nav>
+
+<!--Solo para proposito de testing-->
+<?php printSessions();?>
+
+
+<script>
+    const signOut = () => {
+        sessionStorage.clear();
+        location.href = "errorscreen.php";
+    };
+
+    const confirmAction = () => {
+        const response = confirm("Are you sure you want to Sing Out?");
+
+        if (response)
+        {
+            alert("Su sesión ha sido cerrada con éxito");
+            signOut();
+        }else {
+            alert("Cancelado");
+        }
+    }
+</script>
    

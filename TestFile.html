@@ -3,174 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Items</title>
-    <link rel="stylesheet" href="bulma/css/bulma.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/MenuStyle.css">
     <link rel="stylesheet" href="css/mystyles.css">
-    <link rel="stylesheet" href="css/StandardStyle.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- ... (your existing head content) ... -->
 </head>
 <body>
-    <!-- ... (your existing body content) ... -->
-    <nav class="navbar has-background-transparent" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <!-- navbar items, navbar burger... -->
-          <a class="navbar-item" href="https://bulma.io">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-   
-          </a>
-        <!-- Mobile version this changes the navbar to a side bar-->
-          <a class="navbar-burger is-0-desktop" id="burger">
-          <span></span>
-          <span></span>
-          <span></span>
-           
-          </a>
+<ul class="Menu" id="Menu">
+    <li class="Menu-Item">
+        <div class="content" id="content">
+            <input type="text" placeholder="Pizza" readonly id="item">
+            <button id="edit">Edit</button>
+            <input type="text" placeholder="Price:$5" readonly id="item">
+            <button id="edit">Edit</button>
         </div>
-          <div class="navbar-menu" id="nav-links">
-            
-            <div class="navbar-end">
-              <a href="index.php" class="navbar-item">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-              </span>
-                Home
-            </a>
-              
-                <a class="navbar-item">
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-                    </span> 
-                    Filler
-                </a>
-                  <!-- Other navbar items -->
-          
-              <a href="MenuItem.html" class="navbar-item">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-                </span>   
-                Menu 
-                  </a>
-              <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-                    </span> 
-                     Orders
-                </a>
-                
-              
-                <div class="navbar-dropdown">
-                  <!-- Other navbar items -->
-                  <a href="" class="navbar-item">
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-                    </span>
-                     Make Order
-                  </a>
-                 <a href="" class="navbar-item">
-                     <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-                    </span>
-                    Pay Order
-                </a>
-                 <a href="" class="navbar-item">
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-                    </span>
-                    Claim Order
-                </a>
-                 <a href="" class="navbar-item">
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-                    </span>
-                     Filler
-                </a>
-                 <a href="" class="navbar-item">
-                    <span>
+        <img src="" alt="Dish Image placeholder" class="dish-image">
+    </li>
 
-                    </span>
-                    Filler
-                </a>
-                </div>
-              </div>
-  
-              <a href="login.php" class="navbar-item">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-                </span>
-                Login
-            </a>
-              <a href="register.html" class="navbar-item">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-                </span>
-                Register
-             </a>
-              <a href="" class="navbar-item">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-                </span>
-                My Account
-            </a>
-              <a href="" class="navbar-item">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-                </span>
-                Sign Out
-                
-              </a>
-             
-              </div>
-             </div>
-            </div>
-          </div>
-    </nav>
-     
-    <section class="hero is has-background-transparent">
-        <div class="hero-body">
-            <!-- ... (your existing hero content) ... -->
-
-            <!-- Pizza Menu -->
-            <div class="buttons m-6">
-                <button class="button">Create</button>
-            </div>
-            <ul class="Menu">
-                <!-- Repeat this structure for each menu item -->
-                <li class="Menu-Item">
-                    <div class="text-content">
-                        <p>Pizza <span><button class="button edit-button">Edit</button></span></p>
-                        <p>Description: Is made of Cheese Pepperoni and Spinach <span><button class="button edit-button">Edit</button></span> </p>
-                        <p>Price:<span>&#36;</span>15.99 <span><button class="button edit-button">Edit</button></span></p>
-                       <p>Available: <span><input type="checkbox"></span></p>
-                        <input type="text" class="edit-input" style="display:none;" />
-                        
-                    </div>
-                    <img src="https://i.postimg.cc/0NRYyC2N/pexels-valeria-boltneva-1639557.jpg" alt="" class="dish-image">
-                </li>
-
-                <!-- Repeat for other menu items -->
-               
-
-                    </ul>
-            <!-- ... (your existing hero content) ... -->
-
-           
+    <li class="Menu-Item">
+        <div class="content" id="content">
+            <p>Pizza</p>
+            <p>Description: Is made of Cheese, Pepperoni, and Spinach</p>
+            <p>Price: <span>$</span>15.99</p>
         </div>
-    </section>
+        <img src="https://i.postimg.cc/KY2rMZFn/Pizza.jpg" alt="" class="dish-image">
+    </li>
+</ul>
 
-    <!-- ... (your existing scripts) ... -->
-
-    <script>
-
-      //Creates the Node List and store all the elements with the same ID
-        const editButtons = document.querySelectorAll(".edit-button");
-        const inputFields = document.querySelectorAll(".edit-input");
-        const saveButtons = document.querySelectorAll(".save-edit");
-        //event list in which loops for each button to make sure which one is pressed with the index which iterates and checks if the element is inside the parent element
-
-        //The index makes sure that the element is been edited is the correct one and also helps to jump from element to element
-       
-    </script>
+<script src="javascript/MenuScript.js"></script>
 </body>
 </html>
