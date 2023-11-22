@@ -17,7 +17,7 @@
         // Definir URLs para redirección
         $urlClientRegister ='./clients_register.php'; 
         $urlEdi ='./editar.php' ; 
-        $urlIndex ='./index.html' ;
+        $urlIndex ='./index.php' ;
         $usuarioDuplicado = "Error: Usuario duplicado. Ingrese otros dato." ; 
         
         if(isset($_POST['registrar']))

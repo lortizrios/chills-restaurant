@@ -34,13 +34,33 @@
         return $query->execute([$name, $email, $password, $user_type]);
         
     }
-    
-    //Maneja todas las sesiones 
-    function manageAllSessions(){
-        
-        startSession();
 
-        $loginSuccess = $_SESSION['login_successful']
+    function printSessions(){
+        if($_SESSION['login']){
+            echo 'Login = True | ';
+        }
+
+        if ($_SESSION['email']){
+            echo 'Email = ' . $_SESSION['email'] . ' | ';
+        }
+
+        if($_SESSION['user_type']){
+            echo 'User_Type = ' . $_SESSION['user_type'] . '  ';
+        }
+    }
+
+    //Verifica si usuario inicio la session
+    function isLogin():bool{
+        $login = $_SESSION['login'];
+
+        if($login === true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+        $loginSuccess = $_SESSION['login'];
         $update = $_SESSION['update'];
         $error_actualizando = $_SESSION['error_actualizar'];
         $delError = $_SESSION['delete-error'];
@@ -52,10 +72,9 @@
         //llama a las funciones creadas en javascript/funtions.js
         //<script>funciones();</script>
 
-        session_destroy();
-    }
+
+
 
     
     
 
-?>

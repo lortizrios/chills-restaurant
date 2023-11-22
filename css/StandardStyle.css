@@ -174,13 +174,11 @@
   font-size: 60px;
 }
 
-
-
 .size-3-rem{
   font-size: 3rem;
   margin-left: auto;
   margin-right: auto;
- 
+
 }
 .is-flex-centered-column{
   display: flex;
@@ -189,14 +187,17 @@
   margin :0;
   height: 100vh;
   flex-direction: column;
-   align-items: center;
+  align-items: center;
 }
+
 .size-rem-2{
 font-size: 2rem;
 }
+
 .rem-space-1{
   margin: 1rem;
 }
+
 /* Media Queries */
   
   /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */

@@ -1,10 +1,7 @@
 <?php
     include_once 'include/funciones.php';
 
-    startSession();
-    
-    //session_start();
-
+    session_start();
 
     // conexion a la base de datos
     require_once 'include/db.php';

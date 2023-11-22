@@ -12,6 +12,8 @@
 </head>
 
 <body>
+  
+
     <!-- Navbar -->
 
     <nav class="navbar has-background-transparent" role="navigation" aria-label="main navigation">
@@ -248,8 +250,6 @@
         </div>
     </nav>
 
-
-
     <!-- Hero Content -->
 
     <section class="hero is has-background-transparent">
@@ -314,6 +314,8 @@
                     <p>'.$description.'</p>
                     <p>Price:<span>&#36;</span>'.$price.'</p>
                   </div>';
+                  
+                  // Llama las imagenes de la web y las asigna a cada comida 
                   if($name == "Pizza Margarita"){
                     echo '<img src="https://i.postimg.cc/fy8b1jtP/pizza-margarita.webp" alt="" class="dish-image">';
                   }
