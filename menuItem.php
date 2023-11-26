@@ -315,7 +315,7 @@
                     <p>Price:<span>&#36;</span>'.$price.'</p>
                   </div>';
                   
-                  // Llama las imagenes de la web y las asigna a cada comida 
+                  // Llama las imagenes de la web y las asigna a cada comida
                   if($name == "Pizza Margarita"){
                     echo '<img src="https://i.postimg.cc/fy8b1jtP/pizza-margarita.webp" alt="" class="dish-image">';
                   }
@@ -351,8 +351,8 @@
 
                   if($name == "Asopao de pollo"){
                     echo '<img src="https://i.postimg.cc/MGqYYzwp/Asopado-de-Pollo.jpg" alt="" class="dish-image">';
-                  }'
-                </li>';
+                  }
+                  '</li>';
                 }
               }
 

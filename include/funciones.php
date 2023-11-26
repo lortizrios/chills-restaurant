@@ -36,8 +36,12 @@
     }
 
     function printSessions(){
-        if($_SESSION['login']){
-            echo 'Login = True | ';
+        if($_SESSION['login']){   
+            echo '-----Login = True | ';
+        }
+        
+        if($_SESSION['id-user']){
+            echo 'Id = '.$_SESSION['id-user']. '| ';
         }
 
         if ($_SESSION['email']){
@@ -45,7 +49,7 @@
         }
 
         if($_SESSION['user_type']){
-            echo 'User_Type = ' . $_SESSION['user_type'] . '  ';
+            echo 'User_Type = ' . $_SESSION['user_type'] . ' -----';
         }
     }
 
@@ -53,7 +57,7 @@
     function isLogin():bool{
         $login = $_SESSION['login'];
 
-        if($login === true){
+        if($login == true){
             return true;
         }else{
             return false;
@@ -68,9 +72,11 @@
         $usuarioDuplicado = $_SESSION['usuario-duplicado'];
         $usuarioRegistrado = $_SESSION['usuario-registrado'];
         $errorRegistrar = $_SESSION['error-registrar'];
+        //$clickSinLogear = $_SESSION['no-logeado'] = 'Login to have acces to the sistem!';
 
         //llama a las funciones creadas en javascript/funtions.js
         //<script>funciones();</script>
+?>
 
 
 
