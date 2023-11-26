@@ -5,6 +5,7 @@
     */
 
     require_once('include/db.php');
+    session_start();
 
     $nombre = filter_input(INPUT_POST, "name");
     //$telefono = filter_input(INPUT_POST, "telefono");
@@ -49,9 +50,11 @@
     //ejecutar el insert del usuario a las bases de datos
     if (mysqli_stmt_execute($stmtInsert)) {
         $ultimo_id = mysqli_insert_id($con);
-        
+
+        $_SESSION['usuario-registrado'] = "Se ha registrado con exito";
+
         //Redirige al usuario a la pagina users.php
-        header('Location: users.php');
+        header('Location: login.php');
         exit(); 
     }
     
@@ -63,3 +66,4 @@
     mysqli_close($con);
     
 ?>
+
