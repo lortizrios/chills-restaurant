@@ -198,6 +198,25 @@ font-size: 2rem;
   margin: 1rem;
 }
 
+
+ 
+/* Canvas code */
+
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+
+/* Ends here */
+
+
+
+
+
 /* Media Queries */
   
   /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
