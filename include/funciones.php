@@ -40,8 +40,8 @@
             echo '-----Login = True | ';
         }
         
-        if($_SESSION['id-user']){
-            echo 'Id = '.$_SESSION['id-user']. '| ';
+        if($_SESSION['id_user']){
+            echo 'Id = '.$_SESSION['id_user']. '| ';
         }
 
         if ($_SESSION['email']){
