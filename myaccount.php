@@ -18,7 +18,7 @@
         include_once 'include/navbar_flake.php';
         
         echo $email = $_SESSION['email'];
-        echo $id = $_SESSION['id-user'];
+        echo $id = $_SESSION['id_user'];
     ?>
 
     <div class="section pt-4 pb-0">
