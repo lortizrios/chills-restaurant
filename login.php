@@ -30,12 +30,14 @@
     }
     </script>
 
+
     <section class="hero is-secundary is-fullheight">
         <div class="hero-body">
             <div class="container">
                 <div class="columns is-centered">
                     <div class="column is-5-tablet is-4-desktop is-5-widescreen">
                         <?php
+
                             $_SESSION['page'] = 'login';
 
                             if (!$_SESSION['login']){
@@ -96,9 +98,6 @@
 
                                 session_destroy();
                             }
-
-                                
-                            
 
                         ?>
                         <form action="loginAuthentication.php" method="POST" class=" box">
