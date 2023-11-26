@@ -5,9 +5,6 @@ burgerIcon.addEventListener('click',()=> {
 })
 
 
-
-
-
 // 
 /* Open when someone clicks on the span element */
 function openNav() {
