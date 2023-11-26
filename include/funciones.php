@@ -35,6 +35,7 @@
         
     }
 
+    // Verifica si la sesión esta activa e imprime los datos de la misma
     function printSessions(){
         if($_SESSION['login']){   
             echo '-----Login = True | ';
