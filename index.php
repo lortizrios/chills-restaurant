@@ -33,7 +33,7 @@
         if(!$_SESSION['login']){
           
           // Ennvia el mensaje en login cuando tratan de entrar a index sin logearse
-          $_SESSION['favor-logearse'] = 'Favor de iniciar sección para tener acceso al sistema';
+          $_SESSION['user-logout'] = 'Favor de iniciar sección para tener acceso al sistema';
           header('Location: login.php');
         }
 
