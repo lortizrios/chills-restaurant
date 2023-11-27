@@ -35,7 +35,12 @@
         <div class="hero-body">
             <div class="container">
                 <div class="columns is-centered">
+                    
                     <div class="column is-5-tablet is-4-desktop is-5-widescreen">
+
+                    <!-- Muestra el nombre del restaurante arriba del login box -->
+                        <h1 class = "has-text-black is-size-3">Chill's Restaurant</h1>
+                        <br>
                         <?php
 
                             $_SESSION['page'] = 'login';

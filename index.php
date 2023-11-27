@@ -13,42 +13,71 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
-  <?php
-    // Llamamos las funciones creadas
-    include_once 'include/funciones.php';
+    <canvas id="snowfall"></canvas>
+    <section class="hero is-fullheight-with-navbar">
+        
+      <?php
+        // Llamamos las funciones creadas
+        include_once 'include/funciones.php';
+        session_start(); 
 
-    session_start();    
-    $_SESSION['page'] = 'index';
+        // Imprimimos las sessiones para testing
+        printSessions();
+          
+        
+        // Identifica en que pagina esta acctualmente
+        $_SESSION['page'] = 'index';
 
-    // Si el usuario esta logiado le da permiso a estar en index,
-    // de lo contrario envia al usuario a login.php
-    if(!$_SESSION['login']){
-      header('Location: login.php');
-    }
+        // Si el usuario esta logiado le da permiso a estar en index,
+        // de lo contrario envia al usuario a login.php
+        if(!$_SESSION['login']){
+          header('Location: login.php');
+        }
 
-    include_once 'include/navbar_flake.php';
-    printSessions();
-  ?>
-    
-    <!-- Product info -->
-    <section class="section">
-    <div class="container">
-        <?php
-            if ($_SESSION['name']>0){
-                echo '<h1 class="title mb-6 has-text-centered is-size-1"> '.$_SESSION['name'].', welcome to Chills Restaurant <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg></span></h1>';
-            }
-        ?>
-    <div class="columns">
-    <div class="columm is-1">
+        // Se llama el navbar de snow
+        include_once 'include/navbar_flake.php';
+        
+        //printSessions();        
+      ?>  
 
-     <p class="has-text-black is-size-3">Chills Restaurant offers a variety of soft drinks and food this business
-
-      started its service on November 30 2023 the owner of Chill's Restaurant is Doctor Henry Bruckman
-     </p>
+      <!-- Hero content: will be in the middle -->
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title mb-6 has-text-centered is-size-1">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake">
+                <line x1="2" x2="22" y1="12" y2="12"/>
+                <line x1="12" x2="12" y1="2" y2="22"/>
+                <path d="m20 16-4-4 4-4"/>
+                <path d="m4 8 4 4-4 4"/>
+                <path d="m16 4-4 4-4-4"/>
+                <path d="m8 20 4-4 4 4"/>
+              </svg>
+              <?php
+                if ($_SESSION['name']>0){
+                  echo '</span>'.$_SESSION['name'].',Welcome to Chills Restaurant<span>';
+                }else {
+                  echo '</span>Welcome to Chills Restaurant<span>';
+                }
+              ?>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-snowflake"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg></span></h1>
+        <div class="columns">
+        <div class="columm is-1">
+              <p class="has-text-black is-size-3">Chill's Restaurant offers a variety of soft drinks and food this businessstarted its service on November 30 2023 the owner of Chill's Restaurant is Doctor Henry Bruckman</p>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
-  </div>
-</section>
+      
+      <!-- Hero footer: will stick at the bottom -->
+      <div class="hero-foot">
+        <p class="is-fixed-bottom-desktop">&copy; 2023 Chills Restaurant. All Rights Reserved.</p>   
+      </div>
+        
+       
+    </section>
+
     <script src="javascript/script.js"></script>
+    <script src="javascript/canvas.js"></script>
   </body>
 </html>

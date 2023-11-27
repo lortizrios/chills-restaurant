@@ -45,6 +45,10 @@
             echo 'Id = '.$_SESSION['id_user']. '| ';
         }
 
+        if ($_SESSION['name']){
+            echo 'Name = ' . $_SESSION['name'] . ' | ';
+        }
+
         if ($_SESSION['email']){
             echo 'Email = ' . $_SESSION['email'] . ' | ';
         }
