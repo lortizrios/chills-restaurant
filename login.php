@@ -52,6 +52,8 @@
                             $usuarioRegistrado = $_SESSION['usuario-registrado'];
                             $error = $_SESSION['wrongPassword'];
                             $logOut = $_SESSION['logout'];
+                            $userLogout = $_SESSION['user-logout'];
+
 
                             // Se llama una alerta de bolma cuando reciba la session de usuario registrado de sessions
                             if($usuarioRegistrado){
@@ -87,11 +89,29 @@
 
                             }
 
-                            if($logOut){
+                            // if($logOut){
+                                
+
+                            //     echo'<div id="successNotification" class="notification is-succes">
+                            //         <button class="delete"></button>'. $logOut .'
+                            //     </div>';
+                                
+                            //     // Espera 3 segundos
+                            //     echo '<script>
+                            //         setTimeout(function() {
+                            //             hideNotification();
+                            //         }, 3000);
+                            //     </script>';
+
+                            //     session_destroy();
+                            //     session_unset();
+                            // } 
+
+                            if($userLogout){
                                 
 
                                 echo'<div id="successNotification" class="notification is-succes">
-                                    <button class="delete"></button>'. $logOut .'
+                                    <button class="delete"></button>'. $userLogout .'
                                 </div>';
                                 
                                 // Espera 3 segundos
@@ -102,8 +122,7 @@
                                 </script>';
 
                                 session_destroy();
-                            }
-
+                            } 
                         ?>
                         <form action="loginAuthentication.php" method="POST" class=" box">
                             <div class="field">
