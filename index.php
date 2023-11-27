@@ -31,6 +31,9 @@
         // Si el usuario esta logiado le da permiso a estar en index,
         // de lo contrario envia al usuario a login.php
         if(!$_SESSION['login']){
+          
+          // Ennvia el mensaje en login cuando tratan de entrar a index sin logearse
+          $_SESSION['favor-logearse'] = 'Favor de iniciar sección para tener acceso al sistema';
           header('Location: login.php');
         }
 
