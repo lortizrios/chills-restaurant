@@ -1,5 +1,12 @@
 
-input { 
+:root{
+--babyGrey:color #81cff4;
+
+
+
+}
+
+/* input { 
     opacity: 0;
     width: 0;
     height: 0;
@@ -36,23 +43,23 @@ input {
     transition: .4s;
   }
   /* Changes the background color when is checked */
-  input:checked + .myslider {
+  /* input:checked + .myslider {
     background-color:greenyellow;
-  }
+  } */
   
-  input:focus + .myslider {
+  /* input:focus + .myslider {
     box-shadow: 0 0 1px #2196F3;
-  }
+  } */
   /* Moves the slider ball to one side to another
   The differents transforms are for compatibility for differents browsers
   
   
   */
-  input:checked + .myslider:before {
+  /* input:checked + .myslider:before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);
-  }
+  } */
   /*The body of the slider   */
   .switch {
     position: relative;
@@ -87,24 +94,24 @@ input {
     transition: .4s;
   }
   /* Changes the background color when is checked */
-  input:checked + .slider {
+  /* input:checked + .slider {
     background-color:greenyellow;
   }
   
   input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
-  }
+  } */
   /* Moves the slider ball to one side to another
   The differents transforms are for compatibility for differents browsers
   
   
   */
-  input:checked + .slider:before {
+  /* input:checked + .slider:before {
     -webkit-transform: translateX(24px);
     -ms-transform: translateX(24px);
     transform: translateX(24px);
   }
-  
+   */
   /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
@@ -112,7 +119,7 @@ input {
   /* Content inside the slider */
   .slider.round::before {
     border-radius: 50%;
-  }
+  } 
 
  .has-background-transparent{
   background-color: transparent !important;
@@ -167,12 +174,71 @@ input {
   font-size: 60px;
 }
 
-/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-@media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
+.size-3-rem{
+  font-size: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+
 }
+.is-flex-centered-column{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin :0;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+}
+
+.size-rem-2{
+font-size: 2rem;
+}
+
+.rem-space-1{
+  margin: 1rem;
+}
+
+
+ 
+/* Canvas code */
+
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+
+/* Ends here */
+
+
+
+
+
+/* Media Queries */
+  
+  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
+  
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* /* Extra large devices (large laptops and desktops,  */
+@media only screen and (min-width: 1200px) {}
+

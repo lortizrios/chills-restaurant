@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen</title>
+    <style>
+        .menu {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        .status {
+            padding: 5px;
+            border: 1px solid black;
+            margin: 5px;
+        }
+
+        .completed {
+            background-color: lightgreen;
+        }
+
+        .in-progress {
+            background-color: lightblue;
+        }
+
+        .in-queue {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kitchen</h1>
+
+    <h2>Orders</h2>
+    <div class="menu">
+        <h3>Order One</h3>
+        <p>Regular Hamburger</p>
+        <p>Fries</p>
+        <p>Large Coke</p>
+    </div>
+
+    <div class="menu">
+        <h3>Order Two</h3>
+        <p>Fries</p>
+        <p>Vanilla Milkshake</p>
+    </div>
+
+    <div class="menu">
+        <h3>Order Three</h3>
+        <p>Nuggets</p>
+        <p>Medium Fries</p>
+        <p>Lemonade</p>
+    </div>
+
+    <h2>Orders in Progress</h2>
+    <div class="status in-progress">Order Four In Progress </div>
+    <div class="status in-progress">Order Five In Progress</div>
+    <div class="status in-queue">Order Six In Queue</div>
+    
+
+    <h2>Completed Orders</h2>
+    <div class="status completed">Completed Order One</div>
+    <div class="status completed">Completed Order Two</div>
+    <div class="status completed">Completed Order Three</div>
+    
+
+    
+</body>
+</html>
