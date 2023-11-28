@@ -47,15 +47,29 @@
     //     }
     // }
 
+    
     //ejecutar el insert del usuario a las bases de datos
     if (mysqli_stmt_execute($stmtInsert)) {
         $ultimo_id = mysqli_insert_id($con);
 
-        $_SESSION['usuario-registrado'] = "Se ha registrado con exito";
+        // Si el usuario ya se habia logeado lo reenvia a home
+        if($_SESSION['login']){
+
+            $_SESSION['usuario-registrado'] = "The user has registered successfully";
+            //Redirige al usuario a la pagina users.php
+            header('Location: index.php');
+            exit();
+        }
+
+        $_SESSION['usuario-registrado'] = "The user has registered successfully";
 
         //Redirige al usuario a la pagina users.php
         header('Location: login.php');
-        exit(); 
+        exit();
+        
+         
+    }else{
+        echo 'error al registrar usuario';
     }
     
     /* cerrar statement */

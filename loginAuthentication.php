@@ -55,11 +55,12 @@
             $name = $row['name'];
             $id =$row['id_user'];
 
-            if ($user > 0 && $name > 0) {
-                $_SESSION['user_type'] = $user;
-                $_SESSION['name'] = $name;
-                $_SESSION['id_user'] = $id;
-            }
+            // if ($user > 0 && $name > 0) {
+            //     // $_SESSION['user_type'] = $user;
+            //     $userType = $user;
+            //     $_SESSION['name'] = $name;
+            //     $_SESSION['id_user'] = $id;
+            // }
 
             if (!$_SESSION['login']) {
                 // El usuario existe y la contraseña es correcta
@@ -67,6 +68,9 @@
                 $_SESSION['login'] = TRUE;
                 $_SESSION['email'] = $email;
                 $_SESSION['id_user'] = $id;
+                $_SESSION['user_type'] = $user;
+                $_SESSION['name'] = $name;
+                
                 header('Location: index.php');
 
             }

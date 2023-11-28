@@ -31,8 +31,7 @@
         // Si el usuario esta logiado le da permiso a estar en index,
         // de lo contrario envia al usuario a login.php
         if(!$_SESSION['login']){
-          
-          // Ennvia el mensaje en login cuando tratan de entrar a index sin logearse
+
           $_SESSION['user-logout'] = 'Favor de iniciar sección para tener acceso al sistema';
           header('Location: login.php');
         }
@@ -57,9 +56,27 @@
                 <path d="m8 20 4-4 4 4"/>
               </svg>
               <?php
-                if ($_SESSION['name']>0){
-                  echo '</span>'.$_SESSION['name'].',Welcome to Chills Restaurant<span>';
-                }else {
+                $usuarioRegistrado = $_SESSION['usuario-registrado'];
+
+                // Se llama una alerta de bolma cuando reciba la session de usuario registrado
+                if($usuarioRegistrado){          
+                  echo'<div id="successNotification" class="notification is-primary">
+                    <button class="delete"></button>'. $usuarioRegistrado .'
+                  </div>';
+
+                  // Espera 3 segundos
+                  echo '<script>
+                    setTimeout(function() {
+                      hideNotification();
+                    }, 3000);
+                  </script>';          
+                }
+
+                // Si recibe la sesion name imprime mensaje con nombre 
+                if ($_SESSION['name'])
+                {
+                  echo '</span>'.$_SESSION['name'].' ,Welcome to Chills Restaurant<span>';
+                }else { // Si no solo imprime mendaje de bienvenida
                   echo '</span>Welcome to Chills Restaurant<span>';
                 }
               ?>
@@ -84,3 +101,12 @@
     <script src="javascript/canvas.js"></script>
   </body>
 </html>
+
+<script>
+    function hideNotification() {
+        var notification = document.getElementById('successNotification');
+        if (notification) {
+            notification.style.display = 'none';
+        }
+    }
+</script>

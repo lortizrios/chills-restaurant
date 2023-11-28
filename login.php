@@ -53,7 +53,7 @@
                             $error = $_SESSION['wrongPassword'];
                             $logOut = $_SESSION['logout'];
                             $userLogout = $_SESSION['user-logout'];
-
+                            
 
                             // Se llama una alerta de bolma cuando reciba la session de usuario registrado de sessions
                             if($usuarioRegistrado){
@@ -123,6 +123,7 @@
 
                                 session_destroy();
                             } 
+
                         ?>
                         <form action="loginAuthentication.php" method="POST" class=" box">
                             <div class="field">
@@ -148,7 +149,7 @@
                             <br>
                             <div class="field">
                                 <button type="submit" id="submit" class="button is-success">Login</button>
-                                <a href="clients_register.php" class="button is-light ml-3">Register</a>
+                                <a href="clients_register.php" class="button is-light ml-3">Client Register</a>
                                 <a href="pinpadlogin.html" class="button is-danger ml-3">Pin Pad Login</a>
                             </div>
                         </form>
