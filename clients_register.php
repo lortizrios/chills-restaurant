@@ -25,7 +25,7 @@
         include_once 'include/funciones.php';
         
         // Se imprime las sesiones para testing
-        printSessions();
+        //printSessions();
 
         
         $userType = $_SESSION['user_type']; 

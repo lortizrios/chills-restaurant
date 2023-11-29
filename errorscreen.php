@@ -10,23 +10,25 @@
     
 <body>
 <?php
-    include_once 'include/funciones.php';
+  include_once 'include/funciones.php';
 
-    startSession();
+  startSession();
 
-    if ($_SESSION['wrongPassword']){
-        echo '<div id="background"></div>
-        <div class="top">
-          <h1>Error</h1>
-          <h2>Contrasena incorrecta</h2>';
-    }else{
-        echo '<div id="background"></div>
-        <div class="top">
-      <h1>404</h1>
-      <h2>Page Not found</h2>';
-    }
+  if ($_SESSION['wrongPassword']){
+      echo '<div id="background"></div>
+      <div class="top">
+        <h1>Error</h1>
+        <h2>Contrasena incorrecta</h2>';
+  }else{
+      echo '<div id="background"></div>
+      <div class="top">
+    <h1>404</h1>
+    <h2>Page Not found</h2>';
+  }
 
-    session_destroy();
+  session_destroy();
+
+
 ?>
 
   
@@ -47,7 +49,9 @@
   </div>
   <div class="shadow"></div>
 </div>
- 
+
+<a href="login.php" class="button is-light ml-3">Go to Login</a>
+
 
 <footer>
   <p>made by <a href="https://codepen.io/juliepark"> julie</a> ♡

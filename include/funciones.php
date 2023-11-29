@@ -54,7 +54,17 @@
         }
 
         if($_SESSION['user_type']){
-            echo 'User_Type = ' . $_SESSION['user_type'] . ' ';
+            echo 'User_Type = ' . $_SESSION['user_type'] . ' | ';
+        }
+
+        if($_SESSION['address']){
+            echo 'Address = ' . $_SESSION['address'] . ' | ';
+        }
+
+        if($_SESSION['is_enabled']){
+            echo 'Is Enable? = True';
+        }else {
+            echo 'Is Enable? = Disable';
         }
     }
 
@@ -68,8 +78,6 @@
             return false;
         }
     }
-
-
         $loginSuccess = $_SESSION['login'];
         $update = $_SESSION['update'];
         $error_actualizando = $_SESSION['error_actualizar'];
