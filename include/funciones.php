@@ -1,6 +1,6 @@
 <?php
     include_once 'db.php';
-    
+
     function startSession(){
         session_destroy();
         session_start();
@@ -45,12 +45,16 @@
             echo 'Id = '.$_SESSION['id_user']. '| ';
         }
 
+        if ($_SESSION['name']){
+            echo 'Name = ' . $_SESSION['name'] . ' | ';
+        }
+
         if ($_SESSION['email']){
             echo 'Email = ' . $_SESSION['email'] . ' | ';
         }
 
         if($_SESSION['user_type']){
-            echo 'User_Type = ' . $_SESSION['user_type'] . ' -----';
+            echo 'User_Type = ' . $_SESSION['user_type'] . ' ';
         }
     }
 
@@ -64,6 +68,7 @@
             return false;
         }
     }
+
 
         $loginSuccess = $_SESSION['login'];
         $update = $_SESSION['update'];

@@ -13,14 +13,23 @@
     <script type="text/javascript" src="javascript/validation_register.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- Conexion a base de datos y funciones -->
-    <?php include '/include/funciones.php';?>
-
 </head>
 
 <body>
     <!-- Aqui va el navbar -->
-    <?php include ('include/navbar.php')?>
+    <?php 
+        // Se inicia la sesion
+        session_start();
+
+        // Se llama las funciones creadas
+        include_once 'include/funciones.php';
+        
+        // Se imprime las sesiones para testing
+        printSessions();
+
+        
+        $userType = $_SESSION['user_type']; 
+    ?>
 
     <section class="section">
         <div class="container">
@@ -29,7 +38,7 @@
 
                     <form action="insert_client.php" method="POST">
                         <div class="field">
-                            <h1>Registro de clientes</h1>
+                            <h1 class = "has-text-black is-size-3">Clients Register Form</h1>
                             <br>
 
                             <label class="label">Name:</label>
@@ -65,24 +74,85 @@
                         <div class="field">
                             <label class="label">Password:</label>
                             <div class="control">
-                                <input id="password" name="password" class="input" type="password"
-                                    placeholder="Password" required>
+                                <input id="password" name="password" class="input" type="password" placeholder="Password" required>
                             </div>
                         </div>
 
-                        <div class="field">
+
+                        <?php
+                        if($userType == 'client' || $userType == 'employee')
+                        {
+                            echo'<label class="label">User Type:</label>
+                                <div class="control">
+                                <input class="input" type="client" value="Client" name="user_type" readonly>
+                            </div>';
+                        }
+
+                        else if($userType == 'manager')
+                        {
+                            echo'<br>
+                            <label class="label">Select a user type</label>
+                            <div class="select is-normal" >
+                                <select name="user_type" required> 
+                                    <option   </option>    
+                                    <option value="client"  name="user_type">Client</option>
+                                    <option value="employee" name="user_type">Employee</option>
+                                    <option value="manager" name="user_type">Manager</option>
+                                </select>
+                            </div>';
+
+                            // echo'<div class="field">
+                            //     <label class="label">User Type:</label>
+                            //     <div class="control">
+                            //         <input id="user-type" name="user_type" class="input" type="Client" placeholder="Client" value="Client">
+                            //     </div>
+                            // </div>';
+
+                            // echo'<div class="field">
+                            //     <label class="label">User Type:</label>
+                            //     <div class="control">
+                            //         <input id="user-type" name="user_type" class="input" type="Client" placeholder="Employee" value="Employee">
+                            //     </div>
+                            // </div>';
+
+                            // echo'<div class="field">
+                            //     <label class="label">User Type:</label>
+                            //     <div class="control">
+                            //         <input id="user-type" name="user_type" class="input" type="Client" placeholder="Manager" value="Manager">
+                            //     </div>
+                            // </div>';
+                        }else {
+                            echo'<label class="label">User Type:</label>
+                                <div class="control">
+                                <input class="input" type="client" value="Client" name="user_type" readonly>
+                            </div>';
+                        }
+
+                        ?>
+                        <!-- <div class="field">
                             <label class="label">User Type:</label>
                             <div class="control">
                                 <input id="user-type" name="user_type" class="input" type="Client" placeholder="Client"
                                     value="Client">
                             </div>
-                        </div>
+                        </div> -->
 
+                        <br>
                         <div class="field">
                             <div class="control is-flex is-justify-content-center">
-                                <button type="submit" class="button is-success ml-1" value="Grabar"
-                                    id="submit">SignUp</button>
-                                <a href="login.php" class="button is-light ml-3">Go to Login</a>
+                                <button type="submit" class="button is-success ml-1" value="Grabar" id="submit">Register User</button>
+                                <?php 
+
+                                    // Si esta registrado muestra el boton de go home
+                                    if($_SESSION['login']){
+                                        echo '<a href="index.php" class="button is-light ml-3">Return to Home</a>';
+                                        exit();
+
+                                    }else { // Envia al usuario para login
+                                        echo'<a href="login.php" class="button is-light ml-3">Go to Login</a>';
+                                    }
+                                ?>
+                                
                             </div>
                         </div>
                     </form>

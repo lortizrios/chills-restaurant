@@ -36,7 +36,12 @@
         <div class="hero-body">
             <div class="container">
                 <div class="columns is-centered">
+                    
                     <div class="column is-5-tablet is-4-desktop is-5-widescreen">
+
+                    <!-- Muestra el nombre del restaurante arriba del login box -->
+                        <h1 class = "has-text-black is-size-3">Chill's Restaurant</h1>
+                        <br>
                         <?php
 
                             $_SESSION['page'] = 'login';
@@ -48,6 +53,8 @@
                             $usuarioRegistrado = $_SESSION['usuario-registrado'];
                             $error = $_SESSION['wrongPassword'];
                             $logOut = $_SESSION['logout'];
+                            $userLogout = $_SESSION['user-logout'];
+                            
 
                             // Se llama una alerta de bolma cuando reciba la session de usuario registrado de sessions
                             if($usuarioRegistrado){
@@ -83,11 +90,29 @@
 
                             }
 
-                            if($logOut){
+                            // if($logOut){
+                                
+
+                            //     echo'<div id="successNotification" class="notification is-succes">
+                            //         <button class="delete"></button>'. $logOut .'
+                            //     </div>';
+                                
+                            //     // Espera 3 segundos
+                            //     echo '<script>
+                            //         setTimeout(function() {
+                            //             hideNotification();
+                            //         }, 3000);
+                            //     </script>';
+
+                            //     session_destroy();
+                            //     session_unset();
+                            // } 
+
+                            if($userLogout){
                                 
 
                                 echo'<div id="successNotification" class="notification is-succes">
-                                    <button class="delete"></button>'. $logOut .'
+                                    <button class="delete"></button>'. $userLogout .'
                                 </div>';
                                 
                                 // Espera 3 segundos
@@ -98,7 +123,7 @@
                                 </script>';
 
                                 session_destroy();
-                            }
+                            } 
 
                         ?>
                         <form action="loginAuthentication.php" method="POST" class=" box">
@@ -125,7 +150,7 @@
                             <br>
                             <div class="field">
                                 <button type="submit" id="submit" class="button is-success">Login</button>
-                                <a href="clients_register.php" class="button is-light ml-3">Register</a>
+                                <a href="clients_register.php" class="button is-light ml-3">Client Register</a>
                                 <a href="pinpadlogin.html" class="button is-danger ml-3">Pin Pad Login</a>
                             </div>
                         </form>

@@ -17,8 +17,14 @@
         session_start();
         include_once 'include/navbar_flake.php';
         
-        echo $email = $_SESSION['email'];
-        echo $id = $_SESSION['id_user'];
+        //Imprimen las variables de la sesion para testin
+        $email = $_SESSION['email'];
+        $id = $_SESSION['id_user'];
+        $name =$_SESSION['name'];
+
+        echo '--| Email: ' . $_SESSION['email']. ' | ';
+        echo 'ID: '.$_SESSION['id_user'];
+        echo ' Name: '.$_SESSION['name'];
     ?>
 
     <div class="section pt-4 pb-0">
