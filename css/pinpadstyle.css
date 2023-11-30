@@ -1,7 +1,13 @@
+:root{
+    --babyBlue: #89cff0;
+    --darkBlue:#3333f9;
+}
+
+
 body{
     text-align: center;
     margin: 0;
-    background:linear-gradient(45deg,rgb(0,255,255),rgb(25,255,178)) ;
+    background:linear-gradient(45deg,rgb(0,255,255),rgb(25, 113, 255)) ;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +33,7 @@ justify-content	:Horizontally aligns the flex items when the items do not use al
     padding: 30px;
     border-radius: 5px;
     color: azure;
-    background-color: rgba(13, 27, 42, 0.3);
+    background-color: rgba(0, 0, 0, 0.809);
     border: none;
     box-sizing: border-box;
 }
@@ -42,6 +48,9 @@ justify-content	:Horizontally aligns the flex items when the items do not use al
 }
 button{
     /* Button style */
+    background-image: linear-gradient(to right, var(--babyBlue),var(--darkBlue));
+    -webkit-background-clip:text;
+    /* -webkit-text-fill-color: transparent; */
     width:calc(25% - 15px) ;
     height: 55px;
     font-size: 20px;
@@ -49,8 +58,9 @@ button{
     border: none;
     border-radius: 5px;
     float: left;
-    background-color: blueviolet;
+    background-color: rgb(43, 113, 118);
     color: whitesmoke;
+     
     -webkit-box-shadow: -1px 1px 30px -5px rgba(0,0,0,0.2);
     -mox-box-shadow: -1px 1px 30px -5px rgba(0,0,0,0.2);
     box-shadow: -1px 1px 30px -5px rgba(0,0,0,0.2);;
@@ -62,3 +72,4 @@ button:active{
     transform: scale(1.05);
     box-shadow: 0 24px 4px 1px rgba(0, 0, 0, 0.19);
 }
+ 

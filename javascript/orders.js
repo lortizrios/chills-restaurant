@@ -40,6 +40,15 @@ function showCartPopup() {
     // Create a pop-up window
     const popup = window.open('', '_blank', 'width=400,height=400,scrollbars=yes,resizable=yes');
 
+    // Define the toggleButton function within the pop-up window's context
+    popup.toggleButton = function (clickedButtonId, otherButtonId) {
+    const clickedButton = popup.document.getElementById(clickedButtonId);
+    const otherButton = popup.document.getElementById(otherButtonId);
+
+    clickedButton.style.display = 'none';
+    otherButton.style.display = 'none';
+    };
+
     // Generate the content for the pop-up window
     const popupContent = `
         <html>
@@ -103,16 +112,17 @@ function showCartPopup() {
                     .join('')}
             </ul>
             <h3>Total Price: $${totalPrice.toFixed(2)}</h3>
-            <button id="payButton" onclick="document.getElementById('payButton').style.display='none';document.getElementById('paidText').style.display='block'">Pay</button>
+            <button id="payButton" onclick="toggleButton('payButton','cancelButton');document.getElementById('paidText').style.display='block';">Pay</button>
             <p id="paidText">Food Paid</p>
-            <button id="cancelButton" onclick="document.getElementById('cancelButton').style.display='none';document.getElementById('cancelText').style.display='block' ">Cancel Order</button>
-            <p id="cancelText">Order Cancel!</p>
+            <button id="cancelButton" onclick="toggleButton('cancelButton','payButton');document.getElementById('cancelText').style.display='block';">Cancel</button>
+            <p id="cancelText">Order Canceled</p>
         </body>
         </html>`;
 
     // Set the content of the pop-up window
     popup.document.write(popupContent);
 }
+
  
 
  // Define temporary prices for each item
