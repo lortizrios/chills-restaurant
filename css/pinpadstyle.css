@@ -1,72 +1,64 @@
-.pin-login {
-    display: inline-block;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 28px;
-    background: #d9deff;
-    border: 1px solid #363b5e;
-    user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
-    font-family: sans-serif;
-}
-
-.pin-login__text {
-    margin: 10px auto 10px auto;
-    padding: 10px;
-    display: block;
-    width: 50%;
-    font-size: 0.5em;
+body{
     text-align: center;
-    letter-spacing: 0.2em;
-    background: rgba(0, 0, 0, 0.15);
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    cursor: default;
-}
-
-.pin-login__text--error {
-    color: #901818;
-    background: #ffb3b3;
-    animation-name: loginError;
-    animation-duration: 0.1s;
-    animation-iteration-count: 2;
-}
-
-@keyframes loginError {
-    25% {
-        transform: translateX(-3px);
-    }
-    75% {
-        transform: translateX(3px);
-    }
-}
-
-@-moz-keyframes loginError {
-    25% {
-        transform: translateX(-3px);
-    }
-    75% {
-        transform: translateX(3px);
-    }
-}
-
-.pin-login__key {
-    width: 60px;
-    height: 60px;
-    margin: 10px;
-    background: rgba(0, 0, 0, 0.15);
-    color: #363b5e;
-    border-radius: 50%;
-    display: inline-flex;
+    margin: 0;
+    background:linear-gradient(45deg,rgb(0,255,255),rgb(25,255,178)) ;
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+     
+    height: 100vh;
+}
+/* align-content	Modifies the behavior of the flex-wrap property. It is similar to align-items, but instead of aligning flex items, it aligns flex lines
+align-items	:Vertically aligns the flex items when the items do not use all available space on the cross-axis
+display	Specifies the type of box used for an HTML element
+flex-direction	Specifies the direction of the flexible items inside a flex container
+flex-flow:	A shorthand property for flex-direction and flex-wrap
+flex-wrap:	Specifies whether the flex items should wrap or not, if there is not enough room for them on one flex line
+justify-content	:Horizontally aligns the flex items when the items do not use all available space on the main-axis */
+
+/* flex-grow	Defines how much the item will grow relative to other elements in its container if necessary. The default value is zero (no resizing */
+
+#display{
+    width: 100%;
+    height: 45px;
+    font-size: 24px;
+    text-align: right;
+    margin-bottom: 10px;
+    padding: 30px;
+    border-radius: 5px;
+    color: azure;
+    background-color: rgba(13, 27, 42, 0.3);
+    border: none;
+    box-sizing: border-box;
+}
+.delete{
+    width: calc(98% - 15px);
+}
+.ceros{
+    /* The width of the button ceros */
+    width: calc(49% - 15px);
+    flex-grow: 1;
+    flex-direction: column;  
+}
+button{
+    /* Button style */
+    width:calc(25% - 15px) ;
+    height: 55px;
+    font-size: 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    float: left;
+    background-color: blueviolet;
+    color: whitesmoke;
+    -webkit-box-shadow: -1px 1px 30px -5px rgba(0,0,0,0.2);
+    -mox-box-shadow: -1px 1px 30px -5px rgba(0,0,0,0.2);
+    box-shadow: -1px 1px 30px -5px rgba(0,0,0,0.2);;
+}
+button:hover{
     cursor: pointer;
 }
-
-.pin-login__key:active {
-    background: rgba(0, 0, 0, 0.25);
+button:active{
+    transform: scale(1.05);
+    box-shadow: 0 24px 4px 1px rgba(0, 0, 0, 0.19);
 }
