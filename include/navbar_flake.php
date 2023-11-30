@@ -157,7 +157,7 @@
         location.href = "logout.php";
   
       }else {
-          alert("Cancelado");
+        alert("Cancelado");
       }
   }
 </script>
