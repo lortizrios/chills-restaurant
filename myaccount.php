@@ -137,26 +137,34 @@
                                         $name = $row["account_name"];
                                         $address = $row['address']; 
                                         $isEnabled = $row['is_enabled'];
-                                        $phoneNumber = $row['phone_number'];                                   
-                                        
-                                        
-
-                                        
+                                        $phoneNumber = $row['phone_number'];
+                                        $isDelete = $row['hide_accounts'];
+                                                                                                                  
                                         //$employee_number = $row["employee_number"];
 
                                         # Ingresar los datos en el HTML
+                                        
                                         echo '<div class="is-size-4" data-user-id="' . $rowId . '" data-user-email="' . $rowEmail . '">';                                        
-                                        if($isEnabled == 0){                                                
-                                            echo ' <h3> '.$user_type.':
-                                                <button id="delete_account" class="button is-danger is-small ml-3">Delete Account</button>
-                                                <button id="enabled_account" class="button is-success is-small ml-3">Activate Account</button>';
-                                            '</h3>';
-                                            // Crear una session pasando el id de cada usuario y el email para poderlos usar en el backend 
+                                        if ($isDelete == 0) {
+                                            echo '<h3>' . $user_type;
+                                            echo '  <button id="delete_account" class="button is-danger is-small ml-3"><a href="disabled-account.php?id=' . $rowId . '">Delete Account</a></button>';
+                                            
                                         }else{
-                                            echo ' <h3> '.$user_type.':
-                                                <button id="delete_account" class="button is-danger is-small ml-3">Delete Account</button>
-                                                <button id="disabled_account" class="button is-warning is-small ml-3">Deactivate Account</button>
-                                            </h3>';
+                                            echo '<h3>' . $user_type;
+                                            echo '  <button id="delete_account" class="button is-success is-small ml-3"><a href="disabled-account.php?id=' . $rowId . '">Recover Account</a></button>';
+                                            
+                                        }
+
+                                        if ($isEnabled == 0) {
+                                            // Mueve el enlace "Editar" aquí
+                                            echo '  <button id="enabled_account" class="button is-success is-small ml-3"><a href="delete-accounts.php?id=' . $rowId . '">Activate Account</a></button>';
+                                            echo '</h3>';
+
+                                            
+                                        } else {
+                                            
+                                            echo '  <button id="disabled_account" class="button is-warning is-small ml-3"><a href="delete-accounts.php?id=' . $rowId . '">Deactivate Account</a></button>';
+                                            echo '</h3>';
                                         }
                                         
                                         echo '    <p>';
@@ -218,7 +226,8 @@
 
             if (confirmed) {
                 // Aquí puedes agregar la lógica para eliminar la cuenta (por ejemplo, una solicitud AJAX al servidor)
-                alert("Account deleted!");
+                //alert("Account deleted!");
+                window.location.href = 'disabled-account.php';
             }
         });
     }
@@ -231,7 +240,7 @@
 
         if (confirmed) {
             // Redirige a la página 'myaccount.php' después de deshabilitar la cuenta
-            window.location.href = 'enabled-my-account.php';
+            window.location.href = 'delete-accounts.php';
         }
     });  
 }
@@ -244,7 +253,7 @@
 
         if (confirmed) {
             // Redirige a la página 'myaccount.php' después de deshabilitar la cuenta
-            window.location.href = 'enabled-my-account.php';
+            window.location.href = 'delete-accounts.php';
         }
     });
 }
