@@ -143,11 +143,29 @@
         </div>
     </div>
 
-    <script src="/javascript/orders.js">  
+    <script>
+        function addToCart(item, quantityId, modificationId) {
+            const cartList = document.getElementById('cart-list');
+            const quantity = document.getElementById(quantityId).value;
+            const modification = document.getElementById(modificationId).value;
+            
+            const cartItem = document.createElement('li');
+            cartItem.innerHTML = `
+                <div class="cart-item">
+                    <div class="cart-item-details">
+                        <span class="item-in-cart">${item}</span> 
+                        (<span class="quantity">Quantity: ${quantity}</span>) 
+                        ${modification ? `<span class="modification">Modifications: ${modification}</span>` : ''}
+                    </div>
+                    <button class="remove-button" onclick="removeFromCart(this)">Remove</button>
+                </div>`;
+            cartList.appendChild(cartItem);
+        }
+
+        function removeFromCart(button) {
+            const cartList = document.getElementById('cart-list');
+            cartList.removeChild(button.parentElement.parentElement);
+        }
     </script>
-
-    
-
-    <button style="display: block; margin: 0 auto; padding: 10px 20px; font-size: 18px;" onclick="showCartPopup()">Check Out</button>
 </body>
 </html>

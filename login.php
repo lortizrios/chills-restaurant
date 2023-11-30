@@ -8,7 +8,6 @@
     <title>Login</title>
     <link rel="stylesheet" href="bulma/css/bulma.css">
     <link rel="stylesheet" href="css/mystyles.css">
-    
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
@@ -54,7 +53,9 @@
                             $error = $_SESSION['wrongPassword'];
                             $logOut = $_SESSION['logout'];
                             $userLogout = $_SESSION['user-logout'];
-                            
+                            $hideAccounts = $_SESSION['disabled-accounts'];
+                            $deleteAccountsSession = $_SESSION['delete-accounts'];
+                
 
                             // Se llama una alerta de bolma cuando reciba la session de usuario registrado de sessions
                             if($usuarioRegistrado){
@@ -88,28 +89,9 @@
                                 
                                 session_destroy();
 
-                            }
+                            } 
 
-                            // if($logOut){
-                                
-
-                            //     echo'<div id="successNotification" class="notification is-succes">
-                            //         <button class="delete"></button>'. $logOut .'
-                            //     </div>';
-                                
-                            //     // Espera 3 segundos
-                            //     echo '<script>
-                            //         setTimeout(function() {
-                            //             hideNotification();
-                            //         }, 3000);
-                            //     </script>';
-
-                            //     session_destroy();
-                            //     session_unset();
-                            // } 
-
-                            if($userLogout){
-                                
+                            if($userLogout){ 
 
                                 echo'<div id="successNotification" class="notification is-succes">
                                     <button class="delete"></button>'. $userLogout .'
@@ -125,8 +107,38 @@
                                 session_destroy();
                             } 
 
+                            if($hideAccounts){
+                                echo'<div id="successNotification" class="notification is-danger">
+                                    <button class="delete"></button> Su cuenta ha sido deshabilitada del sistema
+                                </div>';
+
+                                // Espera 3 segundos
+                                echo '<script>
+                                    setTimeout(function() {
+                                        hideNotification();
+                                    }, 3000);
+                                </script>';
+                                //var_dump($hideAccounts);
+                                session_destroy();
+                            }
+
+                            if($deleteAccountsSession){
+                                echo'<div id="successNotification" class="notification is-danger">
+                                    <button class="delete"></button> Su cuenta ha sido borrada del sistema
+                                </div>';
+
+                                // Espera 3 segundos
+                                echo '<script>
+                                    setTimeout(function() {
+                                        hideNotification();
+                                    }, 3000);
+                                </script>';
+                                //var_dump($hideAccounts);
+                                session_destroy();
+                            }
+
                         ?>
-                        <form action="loginAuthentication.php" method="POST" class=" box">
+                        <form action="loginauthentication.php" method="POST" class=" box">
                             <div class="field">
                                 <label for="" class="label">Email</label>
                                 <div class="control has-icons-left">

@@ -1,29 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pin Pad</title>
-    <link rel="stylesheet" href="/css/pinpadstyle.css">
-</head>
-<body>
- 
-    <div class="PIN-PAD">
-        <input type="text" id="display" readonly class="">
-        <button id="1">1</button>
-        <button id="2">2</button>
-        <button id="3">3</button>
-        <button id="4">4</button>
-        <button id="5">5</button>
-        <button id="6">6</button>
-        <button id="7">7</button>
-        <button id="8">8</button>
-        <button id="9">9</button>
-        <button id="0" class="ceros">0</button>
-        <button id="login">login</button>
-        <button id="delete" class="delete">delete</button>
-    </div>
-    <script src="javascript/pinpad.js"></script>
-     
-</body>
-</html>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="css/pinpadstyle.css">
+<div class="pin-login" id="mainPinLogin">
+  <input type="password" readonly class="pin-login__text">
+  <div class="pin-login__numpad">
+  </div>
+</div>
+
+<script>
+  class PinLogin {
+    constructor ({el, loginEndpoint, redirectTo, maxNumbers = Infinity}) {
+      this.el = {
+        main: el,
+        numPad: el.querySelector(".pin-login__numpad"),
+        textDisplay: el.querySelector(".pin-login__text")
+      };
+
+      this.loginEndpoint = loginEndpoint;
+      this.redirectTo = redirectTo;
+      this.maxNumbers = maxNumbers;
+      this.value = "";
+
+      this._generatePad();
+    }
+
+    _generatePad() {
+      const padLayout = [
+        "1", "2", "3",
+        "4", "5", "6",
+        "7", "8", "9",
+        "backspace", "0", "done"
+      ];
+
+      padLayout.forEach(key => {
+        const insertBreak = key.search(/[369]/) !== -1;
+        const keyEl = document.createElement("div");
+
+        keyEl.classList.add("pin-login__key");
+        keyEl.classList.toggle("material-icons", isNaN(key));
+        keyEl.textContent = key;
+        keyEl.addEventListener("click", () => { this._handleKeyPress(key) });
+        this.el.numPad.appendChild(keyEl);
+
+        if (insertBreak) {
+          this.el.numPad.appendChild(document.createElement("br"));
+        }
+      });
+    }
+
+    _handleKeyPress(key) {
+      switch (key) {
+        case "backspace":
+          this.value = this.value.substring(0, this.value.length - 1);
+          break;
+        case "done":
+          this._attemptLogin();
+          break;
+        default:
+          if (this.value.length < this.maxNumbers && !isNaN(key)) {
+            this.value += key;
+          }
+          break;
+      }
+
+      this._updateValueText();
+    }
+
+    _updateValueText() {
+      this.el.textDisplay.value = "_".repeat(this.value.length);
+      this.el.textDisplay.classList.remove("pin-login__text--error");
+    }
+
+    _attemptLogin() {
+      if (this.value.length > 0) {
+        fetch(this.loginEndpoint, {
+          method: "post",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: `pincode=${this.value}`
+        }).then(response => {
+          if (response.status === 200) {
+            window.location.href = this.redirectTo;
+          } else {
+            this.el.textDisplay.classList.add("pin-login__text--error");
+          }
+        })
+      }
+    }
+  }
+
+  new PinLogin({
+    el: document.getElementById("mainPinLogin"),
+    loginEndpoint: "login.php",
+    redirectTo: "dashboard.html"
+  });
+</script>
