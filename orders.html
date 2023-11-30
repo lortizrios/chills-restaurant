@@ -208,11 +208,20 @@
             const totalPrice = Array.from(cartList.children).reduce((total, cartItem) => {
                 const quantity = parseInt(cartItem.querySelector('.quantity').innerText.split(': ')[1]);
                 const price = parseFloat(cartItem.querySelector('.price').innerText.split('$')[1]);
-                return total + quantity * price;
+                return total + price;
             }, 0);
 
             // Create a pop-up window
             const popup = window.open('', '_blank', 'width=400,height=400,scrollbars=yes,resizable=yes');
+
+            // Define the toggleButton function within the pop-up window's context
+            popup.toggleButton = function (clickedButtonId, otherButtonId) {
+            const clickedButton = popup.document.getElementById(clickedButtonId);
+            const otherButton = popup.document.getElementById(otherButtonId);
+
+            clickedButton.style.display = 'none';
+            otherButton.style.display = 'none';
+            };
 
             // Generate the content for the pop-up window
             const popupContent = `
@@ -242,6 +251,18 @@
                             text-align: center;
                             font-size: 18px;
                         }
+                        #cancelButton {
+                            display: block;
+                            margin: 0 auto;
+                            padding: 10px 20px;
+                            font-size: 18px;
+                        }
+                        #cancelText {
+                            display: none;
+                            color: red;
+                            text-align: center;
+                            font-size: 18px;
+                        }
                     </style>
                 </head>
                 <body>
@@ -265,8 +286,10 @@
                             .join('')}
                     </ul>
                     <h3>Total Price: $${totalPrice.toFixed(2)}</h3>
-                    <button id="payButton" onclick="document.getElementById('payButton').style.display='none';document.getElementById('paidText').style.display='block'">Pay</button>
+                    <button id="payButton" onclick="toggleButton('payButton','cancelButton');document.getElementById('paidText').style.display='block';">Pay</button>
                     <p id="paidText">Food Paid</p>
+                    <button id="cancelButton" onclick="toggleButton('cancelButton','payButton');document.getElementById('cancelText').style.display='block';">Cancel</button>
+                    <p id="cancelText">Order Canceled</p>
                 </body>
                 </html>`;
 
