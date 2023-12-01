@@ -40,7 +40,7 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    $query = "SELECT * FROM accounts WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($conn, $query);
 
     // Verifica si el usuario existe en las bases de datos
@@ -51,31 +51,47 @@
         //header('Location: errorpage2.html?customError=' . urlencode($customError));
 
         if ($row['email'] === $email && $row['password'] === $password) {
-            $user = $row['user_type'];
+            $userType = $row['user_type'];
             $name = $row['name'];
-            $id =$row['id_user'];
+            $id =$row['id_account'];
+            $name = $row['account_name'];
+            $address = $row['address'];
+            $phoneNumber = $row['phone_number'];
+            $isEnabled = $row['is_enabled'];
+            $hideAccounts = $row['hide_accounts'];
 
-            // if ($user > 0 && $name > 0) {
-            //     // $_SESSION['user_type'] = $user;
-            //     $userType = $user;
-            //     $_SESSION['name'] = $name;
-            //     $_SESSION['id_user'] = $id;
-            // }
-
+            var_dump($userType);
+            var_dump($name);
+            var_dump($id);
+            var_dump($account_name);
+            var_dump($address);
+            var_dump($phoneNumber);
+            var_dump($isEnabled);
+            var_dump($hideAccounts);
+            
+            // Si no esta logeado pues loguea al usuario
             if (!$_SESSION['login']) {
-                // El usuario existe y la contraseña es correcta
-                //session_regenerate_id();
-                $_SESSION['login'] = TRUE;
-                $_SESSION['email'] = $email;
-                $_SESSION['id_user'] = $id;
-                $_SESSION['user_type'] = $user;
-                $_SESSION['name'] = $name;
-                
-                header('Location: index.php');
+            
+                // if($isEnabled){
+                //     $_SESSION['disabled-accounts'];
+                //     header('Location: login.php');
+                // }else{
 
+                    $_SESSION['login'] = TRUE;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['name'] = $name;
+                    $_SESSION['id_user'] = $id;
+                    $_SESSION['user_type'] = $userType;
+                    $_SESSION['address'] = $address;
+                    $_SESSION['is_enabled'] = $isEnabled;
+                    $_SESSION['phone_number'] = $phoneNumber;
+                    $_SESSION['hide-accounts'] = $hideAccounts;
+
+                    header('Location: index.php');
+                //}
             }
         }
-    } else {
+    } else{
 
         // Redireccionar a la página de errores y pasar la variable como parámetro
 

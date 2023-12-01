@@ -8,13 +8,16 @@
     session_start();
 
     $nombre = filter_input(INPUT_POST, "name");
-    //$telefono = filter_input(INPUT_POST, "telefono");
     $email = filter_input(INPUT_POST, "email");
     $password = filter_input(INPUT_POST, "password");
     $user_type = filter_input(INPUT_POST, "user_type");
+    $direccion = filter_input(INPUT_POST, "address");
+    $telefono = filter_input(INPUT_POST, "phonenumber");
+    $isEnabled = 1;
+    $hideAccounts = 0;
     
     // Si el email no existe, inserta los valores
-    $sqlInsert = "INSERT INTO users values(null, ?, ?, ?, ?)" ;
+    $sqlInsert = "INSERT INTO accounts values(null, ?, ?, ?, ?, ?, ?, ?, ?)" ;
     
     // Verifica si el email existe
     // $sqlEmail = "SELECT * FROM users WHERE email = ?";
@@ -33,21 +36,8 @@
     // bind de los valores enviados con los marcadores
     // mysqli_stmt_bind_param($stmtEmail, "s", $email);
     
-    mysqli_stmt_bind_param($stmtInsert, "ssss", $nombre, $email, $password, $user_type);
-    
-    // Ejecuta el statement
-    // if(mysqli_stmt_execute($stmtEmail)){
-    //     // Almascena el resultado
-    //     $result = $mysqli_stmt_get_result($stmtEmail);
-    //     if (mysqli_num_rows($result) > 0) {
-    //         // Email ya existe
-    //         //echo "El correo electrónico ya está registrado.";
-    //         header('Location: login.php');
-    //         exit();  // Puedes manejar la lógica adicional aquí según tus necesidades
-    //     }
-    // }
-
-    
+    mysqli_stmt_bind_param($stmtInsert, "ssssssss", $nombre, $direccion, $telefono, $email, $password, $user_type, $isEnabled, $hideAccounts);
+       
     //ejecutar el insert del usuario a las bases de datos
     if (mysqli_stmt_execute($stmtInsert)) {
         $ultimo_id = mysqli_insert_id($con);

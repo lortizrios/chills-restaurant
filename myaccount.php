@@ -35,7 +35,18 @@
         echo "Address: " . $address . " | ";
         echo "Is Enabled: " . $isEnabled . " | ";
         echo "Phone Number: " . $phoneNumber . " | ";
-        echo "Delete Account: " . $hideAccounts ." | ";
+        
+        if($_SESSION['is_enabled']){
+            echo 'Its Enable = True'. ' | ';
+        }else {
+            echo 'Its Enable = Disable'. ' | ';
+        }
+
+        if($_SESSION['hide-accounts']){
+            echo 'Delete Account = True'. ' | ';
+        }else {
+            echo 'Delete Account = False'. ' | ';
+        }
     ?>
 
     <div class="section pt-4 pb-0">
@@ -61,8 +72,10 @@
                         if($user_type == 'Client'){
                             echo '<div class="is-size-4">';
                             echo '<h3>';
-                            echo '        Employee:';
-                            echo '        <button id="remove_employee" class="button is-danger is-small ml-3">Remove Account</button>';
+                            echo '    Employee:';
+                            echo '  <button id="delete_account" class="button is-danger is-small ml-3">
+                                        <a href="delete-accounts.php?id=' .$hideAccounts.'">Delete Account</a>
+                                    </button>';
                             echo '    </h3>';
                             echo '    <p>';
                             echo '        Name: ' . $name;
@@ -147,23 +160,23 @@
                                         echo '<div class="is-size-4" data-user-id="' . $rowId . '" data-user-email="' . $rowEmail . '">';                                        
                                         if ($isDelete == 0) {
                                             echo '<h3>' . $user_type;
-                                            echo '  <button id="delete_account" class="button is-danger is-small ml-3"><a href="disabled-account.php?id=' . $rowId . '">Delete Account</a></button>';
+                                            echo '  <button id="delete_account" class="button is-danger is-small ml-3"><a href="delete-accounts.php?id=' . $rowId . '">Delete Account</a></button>';
                                             
                                         }else{
                                             echo '<h3>' . $user_type;
-                                            echo '  <button id="delete_account" class="button is-success is-small ml-3"><a href="disabled-account.php?id=' . $rowId . '">Recover Account</a></button>';
+                                            echo '  <button id="delete_account" class="button is-success is-small ml-3"><a href="delete-accounts.php?id=' . $rowId . '">Recover Account</a></button>';
                                             
                                         }
 
                                         if ($isEnabled == 0) {
                                             // Mueve el enlace "Editar" aquí
-                                            echo '  <button id="enabled_account" class="button is-success is-small ml-3"><a href="delete-accounts.php?id=' . $rowId . '">Activate Account</a></button>';
+                                            echo '  <button id="enabled_account" class="button is-success is-small ml-3"><a href="disabled-accounts.php?id=' . $rowId . '">Activate Account</a></button>';
                                             echo '</h3>';
 
                                             
                                         } else {
                                             
-                                            echo '  <button id="disabled_account" class="button is-warning is-small ml-3"><a href="delete-accounts.php?id=' . $rowId . '">Deactivate Account</a></button>';
+                                            echo '  <button id="disabled_account" class="button is-warning is-small ml-3"><a href="disabled-accounts.php?id=' . $rowId . '">Deactivate Account</a></button>';
                                             echo '</h3>';
                                         }
                                         

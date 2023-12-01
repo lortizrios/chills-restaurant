@@ -62,9 +62,15 @@
         }
 
         if($_SESSION['is_enabled']){
-            echo 'Is Enable? = True';
+            echo 'Its Enable = True'. ' | ';
         }else {
-            echo 'Is Enable? = Disable';
+            echo 'Its Enable = Disable'. ' | ';
+        }
+
+        if($_SESSION['hide-accounts']){
+            echo 'Delete Account = True'. ' | ';
+        }else {
+            echo 'Delete Account = False'. ' | ';
         }
     }
 

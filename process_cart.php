@@ -1,6 +1,5 @@
 <?php
-
-    
+  
     require_once('include/db.php');
 
     session_start();
@@ -13,9 +12,9 @@
         $con = dataBaseConnetion();
 
         // Query para buscar el id en la base de datos
-        $sqlFind = "SELECT * FROM accounts WHERE id_account = '$id'";
+        $sqlFind = "SELECT * FROM menu WHERE id_menu = '$id'";
 
-        //adicional
+        // Prepare Statement
         if ( $stmt = mysqli_prepare($con, $sqlFind) ) {
 
             // ejecutar el query
@@ -26,24 +25,27 @@
 
             while ( $row = mysqli_fetch_assoc($result) ){
 
-                $rowEmail = $row["email"];
-                $user_type = $row["user_type"];
-                $rowId = $row["id_account"];
-                $name = $row["account_name"];
-                $address = $row['address']; 
-                $isEnabled = $row['is_enabled'];
-                $phoneNumber = $row['phone_number'];
-                $hideAccount = $row['hide_accounts'];
+                $rowIdMenu = $row["id_menu"];                                    
+                $rowPlateName = $row["name"];
+                $rowDescriptionMenu = $row['description']; 
+                $rowPricePlate = $row['price'];
+                $rowIsAdd = $row['is_add'];
 
             }    
 
-            echo $rowId; 
-            echo $hideAccount; 
+            // guardar los datos en una variable session
+            $_SESSION['data'] = array(
+                'rowIdMenu' => $rowIdMenu,
+                'rowPlateName' => $rowPlateName,
+                'rowDescriptionMenu' => $rowDescriptionMenu,
+                'rowPricePlate' => $rowPricePlate,
+                'rowIsAdd' => $rowIsAdd
+            );
 
-            // Verifica si la cuenta esta activada 
-            if($hideAccount == 1){
+            // Quita el producto del carrito 
+            if($rowIsAdd == 1){
             
-                $queryUpdate = "UPDATE accounts SET hide_accounts = 0 WHERE id_account = $id" ; 
+                $queryUpdate = "UPDATE menu SET is_add = 0 WHERE id_menu = $id" ; 
                     
                 // crear el prepare statement
                 if ( $stmt = mysqli_prepare($con, $queryUpdate)){
@@ -51,20 +53,18 @@
                     // ejecutar el query
                     if(mysqli_stmt_execute($stmt)){
 
-                        header('Location: myaccount.php');
+                        header('Location: orders.php');
                     }
                 }
 
             }else{// Imprime Error si hay error al verificar
-                echo'Error al cambiar el estado de hide account a 0' . $hideAccount; 
-                ;
+                echo'Error al cambiar el estado de is_add a 0';
             }
 
-
             // Verifica si la cuenta esta desactivada 
-            if($hideAccount == 0){
+            if($rowIsAdd == 0){
             
-                $query = "UPDATE accounts SET hide_accounts = 1 WHERE id_account = $id" ; 
+                $query = "UPDATE menu SET is_add = 1 WHERE id_menu = $id" ; 
                     
                 // crear el prepare statement
                 if ( $stmt = mysqli_prepare($con, $query)){
@@ -72,12 +72,12 @@
                     // ejecutar el query
                     if(mysqli_stmt_execute($stmt)){
 
-                        header('Location: myaccount.php');
+                        header('Location: orders.php');
                     }
                 }
 
             }else{// Imprime Error si hay error al verificar
-                echo'Error al cambiar el estado de hide account a 1' . $hideAccount; 
+                echo'Error al cambiar el estado de is_add a 0';
             }
             
         }else {
