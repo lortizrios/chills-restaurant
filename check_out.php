@@ -28,14 +28,14 @@
         $phoneNumber = $_SESSION['phone_number'];
         $hideAccounts = $_SESSION['hide-accounts'];
 
-        echo "-- Email: " . $email . " | ";
-        echo "ID: " . $idLoginUser . " | ";
-        echo "Name: " . $name . " | ";
-        echo "User Type: " . $user_type . " | ";
-        echo "Address: " . $address . " | ";
-        echo "Is Enabled: " . $isEnabled . " | ";
-        echo "Phone Number: " . $phoneNumber . " | ";
-        echo "Delete Account: " . $hideAccounts ." | ";
+        // echo "-- Email: " . $email . " | ";
+        // echo "ID: " . $idLoginUser . " | ";
+        // echo "Name: " . $name . " | ";
+        // echo "User Type: " . $user_type . " | ";
+        // echo "Address: " . $address . " | ";
+        // echo "Is Enabled: " . $isEnabled . " | ";
+        // echo "Phone Number: " . $phoneNumber . " | ";
+        // echo "Delete Account: " . $hideAccounts ." | ";
     ?>
 
     <div class="section pt-4 pb-0">
@@ -59,6 +59,7 @@
 
                     <?php
 
+                    //Tira el alert
                     $status = $_SESSION['order-status'];
                     if($status){
                         echo'<div id="successNotification" class="notification is-success">
@@ -75,8 +76,8 @@
                         
                     }
 
-                    // Inicializar la variable total
-                    $totalPrice = 0;
+                        // Inicializar la variable total
+                        $totalPrice = 0;
                                                 
                         // Importar la conexión a la base de datos
                         require_once 'include/db.php';

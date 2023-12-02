@@ -22,7 +22,7 @@
         session_start(); 
 
         // Imprimimos las sessiones para testing
-        printSessions();
+        //printSessions();
           
         
         // Identifica en que pagina esta acctualmente

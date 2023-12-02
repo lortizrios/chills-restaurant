@@ -46,28 +46,26 @@
                                 <input id="name" name="name" class="input" type="text" placeholder="Example: Juan"
                                     required>
                             </div>
-                        </div>
+                        </div>  
 
-                        <!-- <div class="field">
-                          <label class="label">Last Name:</label>
-                          <div class="control">
-                            <input id="lastName" name="lastName" class="input" type="text" placeholder="Example: Medina Alonzo">
-                          </div>
-                      </div> -->
-
-                        <!-- <div class="field">
+                        <div class="field">
                             <label class="label">Phone Number:</label>
                             <div class="control">
-                                <input id="phoneNumber" name="phoneNumber" class="input" type="phone"
-                                    placeholder="Example: 787-495-4839" required>
+                                <input id="phonenumber" name="phonenumber" type="phone" class="input" placeholder="Example: 787-456-3456" required>
                             </div>
-                        </div> -->
+                        </div>
 
                         <div class="field">
                             <label class="label">Email:</label>
                             <div class="control">
-                                <input id="email" name="email" class="input" type="email"
-                                    placeholder="Example: JuanMedina@gmail.com" required>
+                                <input id="email" name="email" class="input" type="email" placeholder="Example: JuanMedina@gmail.com" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Address:</label>
+                            <div class="control">
+                                <input id="address" name="address" class="input" type="address" placeholder=" St. Venecia A50 Guaynabo PR 00578" required>
                             </div>
                         </div>
 
@@ -89,18 +87,7 @@
                         }
 
                         else if($userType == 'manager')
-                        {
-                            echo'<br>
-                            <label class="label">Select a user type</label>
-                            <div class="select is-normal" >
-                                <select name="user_type" required> 
-                                    <option   </option>    
-                                    <option value="client"  name="user_type">Client</option>
-                                    <option value="employee" name="user_type">Employee</option>
-                                    <option value="manager" name="user_type">Manager</option>
-                                </select>
-                            </div>';
-
+                        {   
                             // echo'<div class="field">
                             //     <label class="label">User Type:</label>
                             //     <div class="control">
@@ -121,6 +108,19 @@
                             //         <input id="user-type" name="user_type" class="input" type="Client" placeholder="Manager" value="Manager">
                             //     </div>
                             // </div>';
+
+                            echo'<br>
+                            <label class="label">Select a user type</label>
+                            <div class="select is-normal" >
+                                <select name="user_type" required> 
+                                    <option   </option>    
+                                    <option value="client"  name="user_type">Client</option>
+                                    <option value="employee" name="user_type">Employee</option>
+                                    <option value="manager" name="user_type">Manager</option>
+                                </select>
+                            </div>';
+
+                            
                         }else {
                             echo'<label class="label">User Type:</label>
                                 <div class="control">
@@ -160,60 +160,6 @@
             </div>
         </div>
     </section>
-
-    <script>
-    // document.addEventListener("DOMContentLoaded", function() {
-    //     const form = document.querySelector("form");
-    //     const responseMessage = document.getElementById("responseMessage");
-
-    //     form.addEventListener("submit", function(event) {
-    //         event.preventDefault(); // Previene el envío predeterminado del formulario
-    //         let isValid = true;
-
-    //         const nameInput = document.getElementById("name");
-    //         //const lastNameInput = document.getElementById("lastName");
-    //         const phoneNumberInput = document.getElementById("phoneNumber");
-    //         const emailInput = document.getElementById("email");
-    //         const passwordInput = document.getElementById("password");
-
-
-    //         // Valida el campo "Nombre"
-    //         if (nameInput.value.trim() === "") {
-    //             alert("Por favor, ingrese su nombre.");
-    //             isValid = false;
-    //         }
-
-    //         // Valida el campo "Número de teléfono"
-    //         else if (phoneNumberInput.value.trim() === "") {
-    //             alert("Por favor, ingrese su número de teléfono.");
-    //             isValid = false;
-    //         }
-
-    //         // Valida el campo "Correo electrónico"
-    //         else if (emailInput.value.trim() === "" || !isValidEmail(emailInput.value)) {
-    //             alert("Por favor, ingrese una dirección de correo electrónico válida.");
-    //             isValid = false;
-    //         }
-
-    //         // Valida el campo "Contraseña" (nueva validación)
-    //         else if (passwordInput.value.trim() === "") {
-    //             alert("Por favor, ingrese su contraseña.");
-    //             isValid = false;
-    //         }
-
-    //         if (!isValid) {
-    //             event.preventDefault(); // Evita que el formulario se envíe si no es válido
-    //         }
-    //     });
-
-    //     // Función para validar el formato del correo electrónico
-    //     function isValidEmail(email) {
-    //         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    //         return emailRegex.test(email);
-    //     }
-    // });
-    </script>
-
 </body>
 
 </html>
